@@ -73,8 +73,8 @@
     </nav>
 
     <!-- SECTION 1: HERO (With Transparent Morphing Wave Graphic) -->
-    <section id="heroArea" class="min-h-[85vh] flex items-center px-6 py-20 md:px-12 max-w-7xl mx-auto relative">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center relative z-10">
+    <section class="min-h-[85vh] flex items-center px-6 py-20 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center">
             
             <!-- Left Copy Area -->
             <div class="lg:col-span-7">
@@ -89,15 +89,41 @@
                     We design custom operational environments that restore clarity to agency leaders. Step out of day-to-day delivery loops, protect your margins, and build a self-managing infrastructure.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <button onclick="openBookingModal()" class="bg-brandBlue text-white font-montserrat uppercase text-xs tracking-widest font-bold px-8 py-5 rounded-lg hover:bg-brandBlue/90 transition-all shadow-md text-center">
+                    <button onclick="openBookingModal('Hero Call')" class="bg-brandBlue text-white font-montserrat uppercase text-xs tracking-widest font-bold px-8 py-5 rounded-lg hover:bg-brandBlue/90 transition-all shadow-md text-center">
                         Identify Your Operational Leaks
                     </button>
                 </div>
             </div>
 
-            <!-- Right Area: Transparent Harmonic Wave Graphic (No frame, no border) -->
-            <div class="lg:col-span-5 hidden lg:flex justify-center items-center h-80 relative">
-                <canvas id="harmonicCanvas" class="w-full h-full bg-transparent pointer-events-none"></canvas>
+            <!-- Right Pentagram-Style Visual Art Area -->
+            <div class="lg:col-span-5 hidden lg:flex justify-center items-center">
+                <div class="relative w-80 h-80 flex items-center justify-center">
+                    <!-- Spinning Outer Ring -->
+                    <div class="absolute inset-0 border border-brandSlate/10 rounded-full animate-orbit"></div>
+                    <div class="absolute inset-4 border border-dashed border-brandBlue/20 rounded-full animate-orbit" style="animation-direction: reverse;"></div>
+                    
+                    <!-- Structural Abstract Graphic Wireframe -->
+                    <svg class="w-72 h-72 relative z-10" viewBox="0 0 100 100">
+                        <!-- Connector lines -->
+                        <line x1="50" y1="15" x2="80" y2="65" stroke="#A5ADBB" stroke-width="0.3" />
+                        <line x1="80" y1="65" x2="20" y2="65" stroke="#A5ADBB" stroke-width="0.3" />
+                        <line x1="20" y1="65" x2="50" y2="15" stroke="#A5ADBB" stroke-width="0.3" />
+                        <line x1="50" y1="50" x2="50" y2="15" stroke="#3E54FF" stroke-width="0.5" stroke-dasharray="1 1" />
+                        <line x1="50" y1="50" x2="80" y2="65" stroke="#F07D35" stroke-width="0.5" stroke-dasharray="1 1" />
+                        <line x1="50" y1="50" x2="20" y2="65" stroke="#A5ADBB" stroke-width="0.5" stroke-dasharray="1 1" />
+                        
+                        <!-- Intersecting circles -->
+                        <circle cx="50" cy="50" r="28" fill="none" stroke="#3E54FF" stroke-width="0.3" opacity="0.4" />
+                        <circle cx="50" cy="50" r="14" fill="none" stroke="#F07D35" stroke-width="0.3" opacity="0.4" />
+                        
+                        <!-- Core Junction Points (Order Points) -->
+                        <circle cx="50" cy="15" r="2.5" fill="#131407" />
+                        <circle cx="50" cy="15" r="5" fill="none" stroke="#3E54FF" stroke-width="0.5" class="animate-ping" style="animation-duration: 3s;" />
+                        <circle cx="80" cy="65" r="2.5" fill="#3E54FF" />
+                        <circle cx="20" cy="65" r="2.5" fill="#F07D35" />
+                        <circle cx="50" cy="50" r="1.5" fill="#131407" />
+                    </svg>
+                </div>
             </div>
         </div>
     </section>
