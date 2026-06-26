@@ -34,16 +34,26 @@
           }
         }
     </script>
+    
     <style>
-        /* Symmetrical flowing pulse line for Section 4 - optimized for all viewports */
-        @keyframes pulseLine {
-            0% { stroke-dashoffset: 100; opacity: 0.3; }
-            50% { opacity: 1; }
-            100% { stroke-dashoffset: 0; opacity: 0.3; }
+        /* Hardware-accelerated CSS animations for guaranteed mobile performance */
+        @keyframes rotatingOrbit {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-        .animate-pulse-line {
-            stroke-dasharray: 6 10;
-            animation: pulseLine 5s linear infinite;
+        .animate-orbit-slow {
+            animation: rotatingOrbit 30s linear infinite;
+        }
+        .animate-orbit-reverse {
+            animation: rotatingOrbit 20s linear infinite reverse;
+        }
+        @keyframes pulseIndicator {
+            0%, 100% { stroke-dashoffset: 0; opacity: 0.3; }
+            50% { stroke-dashoffset: 24; opacity: 0.8; }
+        }
+        .animate-pulse-track {
+            stroke-dasharray: 8;
+            animation: pulseIndicator 5s linear infinite;
         }
     </style>
 </head>
@@ -63,7 +73,7 @@
                 <a href="#services" class="hover:text-brandBlue transition-colors">Services</a>
                 <a href="#case-studies" class="hover:text-brandBlue transition-colors">Case Studies</a>
                 <a href="#about" class="hover:text-brandBlue transition-colors">About</a>
-                <button onclick="openBookingModal()" class="bg-brandBlue text-white px-5 py-3 rounded-lg hover:bg-brandBlue/90 transition-all">
+               <button onclick="openBookingModal()" class="bg-brandBlue text-white px-5 py-3 rounded-lg hover:bg-brandBlue/90 transition-all">
                     LET'S TALK
                 </button>
             </div>
@@ -80,16 +90,16 @@
             <a href="#services" class="block hover:text-brandBlue">Services</a>
             <a href="#case-studies" class="block hover:text-brandBlue">Case Studies</a>
             <a href="#about" class="block hover:text-brandBlue">About</a>
-            <button onclick="openBookingModal()" class="block w-full bg-brandBlue text-white text-center py-3 rounded-lg">LET'S TALK</button>
+            <button onclick="openBookingModal('Mobile menu')" class="block w-full text-left hover:text-brandBlue py-2">LET'S TALK</button>
         </div>
     </nav>
 
-    <!-- SECTION 1: HERO (Frameless Kinetic SVG Alignment Concept) -->
-    <section class="min-h-[85vh] flex items-center px-6 py-20 md:px-12 max-w-7xl mx-auto">
+    <!-- SECTION 1: HERO (With Frameless Kinetic Floating Artwork) -->
+    <section class="min-h-[85vh] flex items-center px-6 py-20 md:px-12 max-w-7xl mx-auto relative">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center">
             
             <!-- Left Copy Area -->
-            <div class="lg:col-span-7">
+            <div class="lg:col-span-7 relative z-10">
                 <p class="text-brandBlue font-montserrat font-bold tracking-widest text-[11px] md:text-xs uppercase mb-5">
                     FOR AGENCY FOUNDERS, OWNERS & DIRECTORS
                 </p>
@@ -101,34 +111,37 @@
                     We design custom operational environments that restore clarity to agency leaders. Step out of day-to-day delivery loops, protect your margins, and build a self-managing infrastructure.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <!-- CTA styled in Brand Orange -->
-                    <button onclick="openBookingModal()" class="bg-brandOrange text-white font-montserrat uppercase text-xs tracking-widest font-bold px-8 py-5 rounded-lg hover:bg-brandOrange/90 transition-all shadow-md text-center">
+                    <!-- Adjusted Hero CTA color to Brand Orange -->
+                    <button onclick="openBookingModal('Hero Call')" class="bg-brandOrange text-white font-montserrat uppercase text-xs tracking-widest font-bold px-8 py-5 rounded-lg hover:bg-brandOrange/90 transition-all shadow-md text-center">
                         Identify Your Operational Leaks
                     </button>
                 </div>
             </div>
 
-            <!-- Right Frameless Kinetic SVG (Guaranteed to render on all mobile and GitHub platforms) -->
-            <div class="lg:col-span-5 hidden lg:flex justify-center items-center">
-                <div class="relative w-80 h-80 flex items-center justify-center">
-                    <svg class="w-72 h-72 relative z-10" viewBox="0 0 100 100" fill="none">
-                        <!-- Structural vectors representing operational pathways -->
-                        <line x1="50" y1="15" x2="82" y2="65" stroke="#A5ADBB" stroke-width="0.2" />
-                        <line x1="82" y1="65" x2="18" y2="65" stroke="#A5ADBB" stroke-width="0.2" />
-                        <line x1="18" y1="65" x2="50" y2="15" stroke="#A5ADBB" stroke-width="0.2" />
-                        <line x1="50" y1="50" x2="50" y2="15" stroke="#3E54FF" stroke-width="0.4" stroke-dasharray="1.5 1.5" />
-                        <line x1="50" y1="50" x2="82" y2="65" stroke="#F07D35" stroke-width="0.4" stroke-dasharray="1.5 1.5" />
-                        <line x1="50" y1="50" x2="18" y2="65" stroke="#A5ADBB" stroke-width="0.4" stroke-dasharray="1.5 1.5" />
+            <!-- Right Pentagram-Style Frameless Kinetic SVG Area (Completely responsive and matches GitHub) -->
+            <div class="lg:col-span-5 flex justify-center items-center pointer-events-none select-none">
+                <div class="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center">
+                    <!-- Rotating Outer Tracking Rings -->
+                    <div class="absolute inset-0 border border-brandSlate/10 rounded-full animate-orbit-slow"></div>
+                    <div class="absolute inset-4 border border-dashed border-brandBlue/15 rounded-full animate-orbit-reverse"></div>
+                    
+                    <!-- Structural Abstract Wireframe -->
+                    <svg class="w-64 h-64 md:w-72 md:h-72 relative z-10" viewBox="0 0 100 100">
+                        <line x1="50" y1="15" x2="80" y2="65" stroke="#A5ADBB" stroke-width="0.3" />
+                        <line x1="80" y1="65" x2="20" y2="65" stroke="#A5ADBB" stroke-width="0.3" />
+                        <line x1="20" y1="65" x2="50" y2="15" stroke="#A5ADBB" stroke-width="0.3" />
+                        <line x1="50" y1="50" x2="50" y2="15" stroke="#3E54FF" stroke-width="0.5" stroke-dasharray="1 1" />
+                        <line x1="50" y1="50" x2="80" y2="65" stroke="#F07D35" stroke-width="0.5" stroke-dasharray="1 1" />
+                        <line x1="50" y1="50" x2="20" y2="65" stroke="#A5ADBB" stroke-width="0.5" stroke-dasharray="1 1" />
                         
-                        <!-- Alignment orbits -->
-                        <circle cx="50" cy="50" r="28" stroke="#3E54FF" stroke-width="0.15" opacity="0.3" />
-                        <circle cx="50" cy="50" r="14" stroke="#F07D35" stroke-width="0.2" opacity="0.3" />
+                        <circle cx="50" cy="50" r="28" fill="none" stroke="#3E54FF" stroke-width="0.3" opacity="0.3" />
+                        <circle cx="50" cy="50" r="14" fill="none" stroke="#F07D35" stroke-width="0.3" opacity="0.3" />
                         
-                        <!-- Core Junction Elements -->
+                        <!-- Connecting Operational Junction Nodes -->
                         <circle cx="50" cy="15" r="2.5" fill="#131407" />
-                        <circle cx="50" cy="15" r="5.5" stroke="#3E54FF" stroke-width="0.4" class="animate-ping" style="animation-duration: 4s;" />
-                        <circle cx="82" cy="65" r="2.5" fill="#3E54FF" />
-                        <circle cx="18" cy="65" r="2.5" fill="#F07D35" />
+                        <circle cx="50" cy="15" r="5" fill="none" stroke="#3E54FF" stroke-width="0.5" class="animate-ping" style="animation-duration: 3s;" />
+                        <circle cx="80" cy="65" r="2.5" fill="#3E54FF" />
+                        <circle cx="20" cy="65" r="2.5" fill="#F07D35" />
                         <circle cx="50" cy="50" r="1.5" fill="#131407" />
                     </svg>
                 </div>
@@ -198,21 +211,22 @@
         </div>
     </section>
 
-    <!-- SECTION 3: THE INFLECTION POINT (Redesigned Centered Editorial Typographic Layout) -->
+    <!-- SECTION 3: THE INFLECTION POINT (Redesigned Centered Typographic Layout with Clean Mobile Wrapping) -->
     <section class="bg-brandCream py-28 px-6 md:px-12 border-b border-brandCharcoal/10">
         <div class="max-w-4xl mx-auto text-center">
-            <span class="font-montserrat text-xs text-brandOrange tracking-widest font-bold block mb-6 uppercase">THE INFLECTION POINT</span>
-            <!-- Responsive text sizing to prevent awkward 4-line breaks on mobile -->
-            <h3 class="font-tenor text-[22px] sm:text-2xl md:text-4xl font-light text-brandCharcoal leading-tight max-w-2xl mx-auto mb-6">
+            <span class="font-montserrat text-xs text-brandOrange tracking-widest font-bold block mb-5 uppercase">THE INFLECTION POINT</span>
+            <!-- Responsive Font Size ensures 2 lines max on mobile devices -->
+            <h3 class="font-tenor text-[22px] sm:text-2xl md:text-3xl font-light text-brandCharcoal leading-tight max-w-4xl mx-auto mb-6">
                 Are you running an agency, or is the agency running you?
             </h3>
-            <p class="text-brandCharcoal/80 text-xs md:text-sm leading-relaxed max-w-xl mx-auto">
-                If your delivery engines, internal communications, and team structures remain in this exact loop for another six months, what is the true cost to your business—and your peace of mind?
+            <p class="text-brandCharcoal/80 text-xs md:text-sm leading-relaxed max-w-2xl mx-auto">
+                If your delivery engines, internal communications, and team structures remain in this exact loop for another 6 months, what is the true cost to your business—and your peace of mind?
             </p>
+            <div class="w-12 h-1 bg-brandBlue mt-8 rounded-full mx-auto"></div>
         </div>
     </section>
 
-    <!-- SECTION 4: THE METHOD / CORE ALIGNMENT FLOW (Streamlined Symmetrical Progress Layout) -->
+    <!-- SECTION 4: THE METHOD / CORE ALIGNMENT FLOW (Minimalist Horizontal Flow) -->
     <section id="alignment" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
         <div class="max-w-2xl mb-20">
             <p class="text-brandBlue font-montserrat font-bold tracking-widest text-xs uppercase mb-3">THE METHOD</p>
@@ -222,51 +236,49 @@
             </p>
         </div>
 
-        <!-- Symmetrical Progress Pipeline -->
+        <!-- Horizontal Pipeline Flow with SVG tracking pulse -->
         <div class="relative px-4">
-            <!-- Flow line animation for desktop viewports -->
-            <div class="hidden lg:block absolute top-[28px] left-[10%] right-[10%] h-0.5 z-0">
-                <svg class="w-full h-full" overflow="visible">
-                    <line x1="0" y1="0" x2="100%" y2="0" stroke="#3E54FF" stroke-width="1.5" class="animate-pulse-line" />
-                </svg>
-            </div>
+            <!-- Symmetrical background trace line -->
+            <div class="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-brandCharcoal/10 z-0"></div>
+            <!-- Precise horizontal tracking animation vector (Responsive fallback handled) -->
+            <div id="methodPulse" class="hidden lg:block absolute top-6 left-12 w-2.5 h-2.5 rounded-full bg-brandBlue shadow-lg shadow-brandBlue/50 transition-all duration-700 ease-in-out z-10"></div>
 
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-6 relative z-10">
                 <!-- 01 -->
-                <div class="text-center px-2">
-                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/25 text-brandCharcoal flex items-center justify-center font-tenor text-lg font-bold mx-auto mb-4 hover:border-brandBlue hover:text-brandBlue transition-all duration-300 shadow-sm">01</div>
+                <div class="method-step text-center opacity-100 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm">01</div>
                     <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandCharcoal">DIAGNOSE</h4>
-                    <p class="text-brandCharcoal/70 text-[11px] leading-relaxed max-w-[150px] mx-auto">Uncover operational leaks.</p>
+                    <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Identify operational leaks.</p>
                 </div>
                 <!-- 02 -->
-                <div class="text-center px-2">
-                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandBlue text-brandBlue flex items-center justify-center font-tenor text-lg font-bold mx-auto mb-4 hover:border-brandOrange transition-all duration-300 shadow-sm">02</div>
-                    <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandBlue">ISOLATE THE FRICTION</h4>
-                    <p class="text-brandCharcoal/70 text-[11px] leading-relaxed max-w-[150px] mx-auto">Target high-leverage bottlenecks.</p>
+                <div class="method-step text-center opacity-40 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm">02</div>
+                    <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandBlue">ISOLATE FRICTION</h4>
+                    <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Target major bottlenecks.</p>
                 </div>
                 <!-- 03 -->
-                <div class="text-center px-2">
-                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandOrange text-brandOrange flex items-center justify-center font-tenor text-lg font-bold mx-auto mb-4 hover:border-brandCharcoal transition-all duration-300 shadow-sm">03</div>
-                    <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandOrange">BUILD THE CORE BRIDGE</h4>
-                    <p class="text-brandCharcoal/70 text-[11px] leading-relaxed max-w-[150px] mx-auto">Deploy tailored SOP blueprints.</p>
+                <div class="method-step text-center opacity-40 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm">03</div>
+                    <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandOrange">BUILD CORE BRIDGE</h4>
+                    <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Deploy target SOP blueprints.</p>
                 </div>
                 <!-- 04 -->
-                <div class="text-center px-2">
-                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/25 text-brandCharcoal flex items-center justify-center font-tenor text-lg font-bold mx-auto mb-4 hover:border-brandBlue hover:text-brandBlue transition-all duration-300 shadow-sm">04</div>
-                    <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandCharcoal">TEAM ALIGNMENT</h4>
-                    <p class="text-brandCharcoal/70 text-[11px] leading-relaxed max-w-[150px] mx-auto">Train team leads for autonomy.</p>
+                <div class="method-step text-center opacity-40 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm">04</div>
+                    <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandCharcoal font-semibold">TEAM ALIGNMENT</h4>
+                    <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Train team leads for autonomy.</p>
                 </div>
                 <!-- 05 -->
-                <div class="text-center px-2">
-                    <div class="w-14 h-14 rounded-full bg-brandBlue text-white flex items-center justify-center font-tenor text-lg font-bold mx-auto mb-4 hover:bg-brandOrange transition-all duration-300 shadow-md">05</div>
+                <div class="method-step text-center opacity-40 transition-all duration-300">
+                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm">05</div>
                     <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandBlue">OPTIMIZATION</h4>
-                    <p class="text-brandCharcoal/70 text-[11px] leading-relaxed max-w-[150px] mx-auto">Continuous feedback loop audit.</p>
+                    <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Continuous audit reviews.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: SERVICES & OPERATIONAL PARTNERSHIP (Highly Symmetrical Cards) -->
+    <!-- SECTION 4: SERVICES & OPERATIONAL PARTNERSHIP -->
     <section id="services" class="bg-brandCream border-t border-brandCharcoal/5 py-24 px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
             <div class="max-w-2xl mb-16">
@@ -310,15 +322,15 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Increased font-size (11px) for visual prominence -->
-                    <button onclick="openBookingModal('Friction Finder')" class="block w-full text-center font-montserrat text-[11px] uppercase font-bold tracking-widest border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg">
+                    <!-- Increased button font-size to 12px / font-semibold for symmetry -->
+                    <button onclick="openBookingModal('Friction Finder')" class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg">
                         Book for Diagnostic
                     </button>
                 </div>
 
                 <!-- IMPLEMENTATION -->
                 <div class="border-2 border-brandBlue p-8 rounded-lg bg-white/40 flex flex-col justify-between relative shadow-md hover:shadow-lg transition-all duration-300">
-                    <span class="absolute -top-3.5 left-6 bg-brandBlue text-white font-montserrat text-[9px] font-bold tracking-widest px-3 py-1 rounded-sm uppercase">Best Outcome</span>
+                    <span class="absolute -top-3.5 left-6 bg-brandBlue text-white font-montserrat text-[9px] font-bold tracking-widest px-3 py-1 rounded-sm uppercase">HIGH EFFICIENCY</span>
                     <div>
                         <div class="flex justify-between items-center mb-6">
                             <span class="font-montserrat text-[10px] font-bold tracking-widest text-brandBlue uppercase">IMPLEMENTATION</span>
@@ -348,7 +360,7 @@
                             </p>
                         </div>
                     </div>
-                    <button onclick="openBookingModal('Alignment Sprint')" class="block w-full text-center font-montserrat text-[11px] uppercase font-bold tracking-widest bg-brandBlue text-white hover:bg-brandBlue/90 transition-all py-4 rounded-lg">
+                    <button onclick="openBookingModal('Alignment Sprint')" class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider bg-brandBlue text-white hover:bg-brandBlue/90 transition-all py-4 rounded-lg">
                         Book for Sprint
                     </button>
                 </div>
@@ -384,7 +396,7 @@
                             </p>
                         </div>
                     </div>
-                    <button onclick="openBookingModal('Fractional COO')" class="block w-full text-center font-montserrat text-[11px] uppercase font-bold tracking-widest border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg">
+                    <button onclick="openBookingModal('Fractional COO')" class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg">
                         Inquire for Bespoke
                     </button>
                 </div>
@@ -397,7 +409,7 @@
         <div class="max-w-2xl mb-16 flex flex-col items-start">
             <p class="text-brandBlue font-montserrat font-bold tracking-widest text-xs uppercase mb-3">PROOF OF CONCEPT</p>
             <h2 class="font-tenor text-3xl md:text-5xl font-light text-brandCharcoal">CASE STUDIES</h2>
-            <p class="text-brandCharcoal/70 mt-4 leading-relaxed text-sm md:text-base">
+            <p class="text-brandCharcoal/70 mt-4 leading-relaxed text-sm md:text-base font-normal">
                 Real transformations demonstrating our custom operations frameworks mapped directly to revenue growth, structural changes, and team autonomy.
             </p>
         </div>
@@ -413,9 +425,8 @@
                     </p>
                 </div>
                 <div class="border-t border-brandCharcoal/10 pt-4 flex justify-between items-center">
-                    <!-- Key outcome size scaled up by 0.3rem (approx 4-5px) for clear layout hierarchy -->
-                    <span class="text-sm font-bold font-montserrat text-brandBlue tracking-wide">+36% Revenue Lift</span>
-                    <!-- Details link arrow icon -->
+                    <!-- Scaled outcomes figures as requested -->
+                    <span class="text-base font-bold font-montserrat text-brandBlue tracking-wide">+36% Revenue Lift</span>
                     <button onclick="openSpecificCase(0)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1">
                         Details &rarr;
                     </button>
@@ -432,7 +443,7 @@
                     </p>
                 </div>
                 <div class="border-t border-brandCharcoal/10 pt-4 flex justify-between items-center">
-                    <span class="text-sm font-bold font-montserrat text-brandBlue tracking-wide">120% KPI Increase</span>
+                    <span class="text-base font-bold font-montserrat text-brandBlue tracking-wide">120% KPI Increase</span>
                     <button onclick="openSpecificCase(1)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1">
                         Details &rarr;
                     </button>
@@ -449,7 +460,7 @@
                     </p>
                 </div>
                 <div class="border-t border-brandCharcoal/10 pt-4 flex justify-between items-center">
-                    <span class="text-sm font-bold font-montserrat text-brandBlue tracking-wide">5-Tier Pricing</span>
+                    <span class="text-base font-bold font-montserrat text-brandBlue tracking-wide">5-Tier Pricing</span>
                     <button onclick="openSpecificCase(2)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1">
                         Details &rarr;
                     </button>
@@ -457,7 +468,7 @@
             </div>
         </div>
 
-        <!-- Case study trigger placed directly beneath samples -->
+        <!-- More Case Studies link placed directly under sample cards -->
         <div class="mt-12 text-left">
             <button onclick="openDrawer()" class="font-montserrat text-xs uppercase tracking-widest font-bold text-brandBlue hover:text-brandOrange transition-colors inline-flex items-center gap-2">
                 More case studies &rarr;
@@ -469,22 +480,22 @@
     <section id="about" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-brandCharcoal/5">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
-            <!-- Left Profile Frame with details repositioned below -->
+            <!-- Left Profile Panel (Empty frame for portrait photo) -->
             <div class="lg:col-span-4 space-y-6 text-center">
-                <!-- Frame Container (designed as empty frame for actual portrait photo) -->
+                <!-- Frame holds portrait dimensions cleanly -->
                 <div class="bg-brandSlate/15 border border-brandCharcoal/5 rounded-lg aspect-[4/5] flex items-center justify-center relative overflow-hidden shadow-inner">
                     <div class="text-center p-6">
                         <span class="text-xs uppercase tracking-widest text-brandSlate font-montserrat font-bold">Portrait Placeholder</span>
                     </div>
                 </div>
 
-                <!-- Text metadata directly below the photo frame -->
+                <!-- Strategic name & title block moved directly under image frame -->
                 <div class="space-y-3">
                     <p class="font-tenor text-2xl font-bold tracking-wider text-brandCharcoal m-0">Thea Theer</p>
                     <p class="text-[10px] font-bold text-brandSlate tracking-widest uppercase font-montserrat m-0">Strategic Operations Consultant</p>
                 </div>
 
-                <!-- SVG Social Icons -->
+                <!-- Premium SVG Icons for Social Platforms -->
                 <div class="pt-2 flex justify-center space-x-6">
                     <a href="https://linkedin.com/in/chaninthon" target="_blank" class="text-brandCharcoal hover:text-brandBlue transition-colors" aria-label="LinkedIn">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -498,29 +509,29 @@
                 </div>
             </div>
             
-            <!-- Editorial Letter Content (Optimized Option C Copywriting) -->
+            <!-- Editorial Letter Content -->
             <div class="lg:col-span-8 lg:pl-12">
                 <p class="text-brandBlue font-montserrat font-bold tracking-widest text-xs uppercase mb-3">OPERATOR PERSPECTIVE</p>
-                <!-- Double line balanced typographical layout -->
                 <h3 class="font-tenor text-3xl md:text-5xl font-light mb-8 leading-tight tracking-normal">
                     LESS NOISE.<br>
                     MORE FREEDOM.
                 </h3>
                 
-                <div class="font-montserrat text-sm md:text-base text-brandBlue font-semibold italic mb-8 border-l-2 border-brandBlue pl-4 leading-relaxed">
-                    "We don’t build systems for the sake of complexity. We build them to buy you certainty."
+                 <div class="font-montserrat text-sm md:text-base text-brandBlue font-semibold italic mb-8 border-l-2 border-brandBlue pl-4 leading-relaxed">
+                    "Exceptional creative vision shouldn't be capped by a fragile operational ceiling."
                 </div>
                 
                 <div class="space-y-6 text-brandCharcoal/85 leading-relaxed text-sm md:text-base">
                     <p>
-                        In my decade of managing operations for fast-growing agencies, remote-first consulting environments, and international accounts, I’ve seen one recurring pattern: creative geniuses often build exceptional agencies, but chaotic businesses.
+                        In my decade of managing operations for fast-growing agencies, remote-first consulting environments, and international accounts, I’ve seen one recurring pattern: creative geniuses often build exceptional agencies, but chaotic businesses. 
                     </p>
                     <p>
-                        You didn't start your agency to spend 15 hours a day chasing updates on Slack, fixing broken delivery handoffs, or watching your margins vanish into scope creep. Your creative business must run lean, remain adaptive, and prioritize the bottom line.
+                  Agency owners rarely fail from a lack of talent. They get bogged down by hours of back-to-back client meetings, constant Slack chasing, and broken handoffs. When you are wasting critical hours managing daily delivery, you lose focus on your highest-priority growth goals.
                     </p>
                     <p>
-                        My approach is practical, quiet, and focused on operational stability. I don’t believe in bloated processes, endless consultation hours, or heavy manuals. Instead, we will design a clean, minimal environment where your team takes absolute ownership and executes smoothly.
+                             True scale requires a lean, adaptive delivery core. By isolating friction, designing clean workflows built for immediate team adoption, and aligning your team leads, we restore the operational rhythm needed to protect your profits and your peace of mind.
                     </p>
+                   
                     <p class="font-medium text-brandCharcoal">
                         I build the operational certainty that protects your profits, leaves your mind free to lead, and gives your personal freedom back.
                     </p>
@@ -564,27 +575,29 @@
     <div id="drawerOverlay" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden transition-all duration-300" onclick="closeDrawer()"></div>
     <div id="caseStudiesDrawer" class="fixed right-0 top-0 bottom-0 z-50 w-full max-w-2xl bg-brandCream shadow-2xl translate-x-full transition-transform duration-300 ease-in-out p-6 md:p-10 overflow-y-auto">
         <div class="flex justify-between items-center mb-8 pb-4 border-b border-brandCharcoal/10">
-            <span class="font-tenor tracking-widest text-brandCharcoal text-lg font-bold">ALL CASE PORTFOLIO</span>
+            <span class="font-tenor tracking-widest text-brandCharcoal text-lg font-bold">FULL CASE STUDIES</span>
             <button onclick="closeDrawer()" class="text-brandCharcoal font-montserrat uppercase tracking-wider text-xs font-semibold hover:text-brandOrange">
                 [ Close ]
             </button>
         </div>
-        
         <div id="caseListContainer" class="space-y-12"></div>
     </div>
 
 
     <!-- ============================================ -->
-    <!-- INTERACTIVE MODAL: REDESIGNED 2-STEP CARD -->
+    <!-- INTERACTIVE MODAL: REDESIGNED MOBILE-SAFE 2-STEP CARD -->
     <!-- ============================================ -->
-    <div id="bookingModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-brandCream border border-brandCharcoal/10 rounded-xl max-w-xl w-full p-8 relative overflow-hidden shadow-2xl">
-            <!-- Close Button -->
+    <!-- Fixed items-start combined with overflow-y-auto ensures robust mobile/tablet scrolling support -->
+    <div id="bookingModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden overflow-y-auto flex items-start justify-center p-4 md:p-10">
+        <!-- my-8 and pointer-events-auto ensures clean margins and interaction boundaries -->
+        <div class="relative bg-brandCream border border-brandCharcoal/10 rounded-xl max-w-xl w-full p-6 md:p-10 my-8 shadow-2xl pointer-events-auto z-10 transition-all duration-300">
+            
+            <!-- Dedicated Close button accessible on all device dimensions -->
             <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-brandCharcoal font-montserrat uppercase tracking-widest text-xs font-semibold hover:text-brandOrange z-20">
                 ✕ Close
             </button>
 
-            <!-- Dynamic Header Info -->
+            <!-- Headline elements completely decoupled from onboarding/qualification terms -->
             <div id="modalHeaderArea" class="mb-6">
                 <h3 class="font-tenor text-2xl font-light text-brandCharcoal mb-2 mt-4 leading-snug">
                     Let's start with the basics.
@@ -594,11 +607,9 @@
                 </p>
             </div>
 
+            <!-- Two-step intake wizard form -->
             <form id="stepForm" class="space-y-6" onsubmit="handleFormSubmission(event)">
-                <!-- Parameter parameter to capture source -->
-                <input type="hidden" id="bookingSource" value="">
-
-                <!-- STEP 1: Basic Identity Data -->
+                <!-- STEP 1: Core Contact Coordinates -->
                 <div id="stepContainer1" class="space-y-6 transition-all duration-300">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
@@ -616,20 +627,14 @@
                         <input type="email" id="workEmail" placeholder="john@agency.com" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required>
                     </div>
 
-                    <div>
-                        <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Company / Brand</label>
-                        <input type="text" id="company" placeholder="Creative Lab" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required>
-                    </div>
-
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Website URL</label>
-                            <!-- generic type="text" to perfectly accept raw inputs without strict HTTP validation -->
-                            <input type="text" id="website" placeholder="www.creativelab.com" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required>
+                            <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Company Name</label>
+                            <input type="text" id="company" placeholder="Creative Lab" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required>
                         </div>
                         <div>
                             <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Team Size</label>
-                            <select id="teamSize" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required>
+                            <select id="teamSize" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none text-brandCharcoal text-sm" required>
                                 <option value="">Select Option</option>
                                 <option value="Solo">Solo Founder</option>
                                 <option value="2-5">2 - 5 team members</option>
@@ -640,17 +645,24 @@
                         </div>
                     </div>
 
-                    <button type="button" onclick="navigateWizard(2)" class="w-full bg-brandCharcoal text-brandCream font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg shadow-md hover:bg-brandBlue hover:text-white transition-all">
+                    <!-- CTA button to transition to Page 2 -->
+                    <button type="button" onclick="goToStep2()" class="w-full bg-brandBlue text-white font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg shadow-md hover:bg-brandBlue/90 transition-all">
                         Continue &rarr;
                     </button>
                 </div>
 
-                <!-- STEP 2: Intent & Goals (Redesigned as requested) -->
-                <div id="stepContainer2" class="space-y-6 transition-all duration-300 hidden">
+                <!-- STEP 2: Goals, Website, Budget & Redirect Confirmation -->
+                <div id="stepContainer2" class="hidden space-y-6 transition-all duration-300">
                     <div>
-                        <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Monthly Operations Budget</label>
-                        <!-- Updated range parameters as specified -->
-                        <select id="budget" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required>
+                        <!-- type="text" cleanly resolves the strict URL format validation bug -->
+                        <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Website/Social Media URL</label>
+                        <input type="text" id="website" placeholder="www.creativelab.com" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required>
+                    </div>
+
+                    <div>
+                        <!-- Dropped the word "operations" to avoid misleading users -->
+                        <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Monthly Budget</label>
+                        <select id="budget" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none text-brandCharcoal text-sm" required>
                             <option value="">Select Range</option>
                             <option value="under-$1k">Under $1,000</option>
                             <option value="$1k-$3k">$1,000 - $3,000</option>
@@ -662,21 +674,34 @@
                     </div>
 
                     <div>
-                        <!-- Shortened balanced question -->
+                        <!-- Condensed highly balanced goals question -->
                         <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat leading-relaxed">
                             What are your primary goals and what do you need most right now?
                         </label>
-                        <textarea id="frictionReason" rows="3" placeholder="e.g., Timeline friction, lost margins, scope creep, or unbilled requests..." class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required></textarea>
+                        <textarea id="frictionReason" rows="3" placeholder="e.g., Streamlining handoffs, structural alignment, or protecting margins..." class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required></textarea>
                     </div>
 
                     <div class="flex gap-4">
-                        <button type="button" onclick="navigateWizard(1)" class="w-1/3 border border-brandCharcoal/20 text-brandCharcoal font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg hover:border-brandCharcoal transition-all">
+                        <button type="button" onclick="goToStep1()" class="w-1/3 border border-brandCharcoal/20 text-brandCharcoal font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg hover:border-brandCharcoal transition-all">
                             Back
                         </button>
+                        <!-- Form Submission button -->
                         <button type="submit" class="w-2/3 bg-brandBlue text-white font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg shadow-md hover:bg-brandBlue/90 transition-all">
                             Let's Talk
                         </button>
                     </div>
+                </div>
+
+                <!-- SUBMIT LOADING REDIRECT NOTICE -->
+                <div id="stepContainer3" class="hidden space-y-6 text-center py-8 transition-all duration-300">
+                    <div class="w-16 h-16 bg-brandBlue/10 text-brandBlue rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                    <h4 class="font-tenor text-2xl font-light text-brandCharcoal">Redirecting to Schedule</h4>
+                    <p class="text-sm text-brandCharcoal/70 max-w-sm mx-auto">
+                        Your operational data has been parsed successfully. We are now preparing the custom parameters and opening your scheduling calendar.
+                    </p>
+                    <div class="w-6 h-6 border-2 border-brandBlue border-t-transparent rounded-full animate-spin mx-auto mt-6"></div>
                 </div>
             </form>
         </div>
@@ -687,7 +712,117 @@
     <!-- INTERACTIVE SCRIPTS -->
     <!-- ============================================ -->
     <script>
-        // Symmetrical progress dot pipeline setup
+        // Database of all 6 Case Studies
+        const casePortfolio = [
+            {
+                tag: "STRATEGY & TRANSFORMATION",
+                title: "Creative Agency Operating Model Transformation",
+                metric: "+36% Revenue Growth",
+                problem: "Fragmented agency workflows between internal execution and client-facing teams, timeline friction, and unbilled client scopes bleeding margins.",
+                shift: "Constructed standard agency lifecycles, structured unified ClickUp traffic structures, and restructured capital/payment schedules to secure cash flow.",
+                action: "Led process mapping for accounts including MiVana & Bioderma, executed ClickUp workspace templates, and designed structured pricing tracks.",
+                impact: "A 36% YoY revenue lift, optimized capital planning leading to loan/revolving debt validation, and an award-winning creative campaign for Ninja Van Thailand."
+            },
+            {
+                tag: "CUSTOMER-CENTRIC OPERATIONS",
+                title: "Scalable Operations for an Automotive Flagship Hub",
+                metric: "120% Target Achievement",
+                problem: "A major flagship center opened with high consumer visibility but lacked internal SOPs, behavior mapping, feedback cycles, or active acquisition workflows.",
+                shift: "Collaborated on-the-ground with operations teams to redesign workflows, transitioning passive showroom walk-ins into a highly predictable, data-driven platform model.",
+                action: "Mapped end-to-end customer journeys, implemented tracking tools to measure visitor volume, and co-created multi-channel (B2B + public) acquisition pipelines.",
+                impact: "Reached 120% of acquisition targets, with B2B growing 25% YoY, leading the automotive brand to relocate its entire operational Headquarters to the location."
+            },
+            {
+                tag: "pricing strategy & logic",
+                title: "Rebuilding Skincare Commerce Channel Architectures",
+                metric: "5-Tier Distribution Architecture",
+                problem: "Complete collapse of its core duty-free sales channel during COVID-19 required a strategic transition to digital multi-channel B2B2C structures.",
+                shift: "Transformed commercial parameters with 5-level pricing logic and unit economics formulas to secure cost-resilience.",
+                action: "Modeled COGS and break-even points, analyzed Google trends for SG and HK, and mapped international dropship logistics rules.",
+                impact: "Built a fully validated ready-to-launch commercial blueprint with risk safeguards for foreign exchange (FX) and operational buffers."
+            },
+            {
+                tag: "ecosystem design & scaling",
+                title: "Lifestyle Hub Platform Transformation",
+                metric: "3,000+ Monthly Users",
+                problem: "An experience center was optimized strictly for structured test-drives, limiting broader demographic integration and return-visitor frequency.",
+                shift: "Repositioned the physical asset from a vehicle test-drive zone into a multi-use community co-working cafe, workshop, and creator space.",
+                action: "Analyzed five years of operational trends, proposed a 70% increase in operations fees to support the larger scope, and mapped cohesive user flows.",
+                impact: "Secured long-term contract renewal in 2020, scaled visitation metrics, and established operational governance models that validated viability into its second 2025 contract phase."
+            },
+            {
+                tag: "campaign productization",
+                title: "Evolving a National Motorsport Experience Platform",
+                metric: "120% Lead Generation",
+                problem: "A multi-city motorsport activation series lacked standard operating procedures, unified data feedback loops, or direct alignment with commercial pipeline goals.",
+                shift: "Treated the yearly national tour campaign through a product lifecycle lens, introducing standardized playbooks across regional teams.",
+                action: "Directed national execution over an 8-year roadmap, integrated global rebrand constraints, and managed multi-million dollar budgets.",
+                impact: "Maintained seamless operational execution across 5 major cities annually, generating hundreds of thousands of interactions, and hitting 120% of campaign lead targets."
+            },
+            {
+                tag: "cultural insight gtm",
+                title: "Repositioning & GTM Strategy for Product Adoption",
+                metric: "+40% Segment Lift",
+                problem: "A high-performance vehicle model faced strong community resistance and competitor loyalty within the regional pickup custom tuning space.",
+                shift: "Transitioned GTM messaging from high-level corporate advertising to highly localized, high-trust peer-to-peer custom custom-shop advocates.",
+                action: "Partnered with local styling clubs, enabled an aftermarket part distribution network of 10+ partners, and designed track-ready performance custom showcases.",
+                impact: "Achieved a 40% YoY target segment lift, shifted the model's cultural perception, and established a repeatable GTM playbook used for subsequent product launches."
+            }
+        ];
+
+        // Mobile Nav Dropdown Trigger
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Case Studies Drawer Setup
+        const drawerOverlay = document.getElementById('drawerOverlay');
+        const caseStudiesDrawer = document.getElementById('caseStudiesDrawer');
+        const caseListContainer = document.getElementById('caseListContainer');
+
+        function openDrawer() {
+            caseListContainer.innerHTML = casePortfolio.map((item) => `
+                <div class="border-b border-brandCharcoal/10 pb-10 last:border-none">
+                    <span class="text-[10px] font-bold font-montserrat tracking-widest text-brandBlue uppercase block mb-2">${item.tag}</span>
+                    <h4 class="font-tenor text-2xl font-bold mb-4 text-brandCharcoal">${item.title}</h4>
+                    <span class="inline-block bg-brandOrange/10 text-brandOrange font-montserrat text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-sm mb-6">${item.metric}</span>
+                    <div class="space-y-4 text-xs md:text-sm">
+                        <p><strong>The Problem:</strong> ${item.problem}</p>
+                        <p><strong>The Operational Shift:</strong> ${item.shift}</p>
+                        <p><strong>The Action Plan:</strong> ${item.action}</p>
+                        <p><strong>The Impact:</strong> ${item.impact}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            drawerOverlay.classList.remove('hidden');
+            setTimeout(() => {
+                caseStudiesDrawer.classList.remove('translate-x-full');
+            }, 10);
+            document.body.classList.add('overflow-y-hidden');
+        }
+
+        function closeDrawer() {
+            caseStudiesDrawer.classList.add('translate-x-full');
+            setTimeout(() => {
+                drawerOverlay.classList.add('hidden');
+            }, 300);
+            document.body.classList.remove('overflow-y-hidden');
+        }
+
+        function openSpecificCase(index) {
+            openDrawer();
+            setTimeout(() => {
+                const elements = caseListContainer.children;
+                if (elements[index]) {
+                    elements[index].scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 350);
+        }
+
+        // Section 4: Symmetrical Pulse Loop Pipeline
         const methodPulse = document.getElementById('methodPulse');
         const methodSteps = document.querySelectorAll('.method-step');
         let currentMethodIndex = 0;
@@ -698,10 +833,10 @@
                     step.classList.add('opacity-100');
                     step.classList.remove('opacity-40');
                     
-                    // Synchronize horizontal coordinates smoothly
                     const stepWidth = 100 / (methodSteps.length - 1);
                     const leftPercentage = idx * stepWidth;
                     
+                    // Matches pipeline layout dynamically on desktop viewports
                     if (window.innerWidth >= 1024) {
                         methodPulse.style.left = `calc(${leftPercentage}% + (48px - (${idx} * 12px)))`;
                     }
@@ -716,74 +851,96 @@
         }
         animateMethodPipeline();
 
-        // Onboarding form navigation
+        // 2-Step Modal Control Elements
+        const bookingModal = document.getElementById('bookingModal');
         const stepContainer1 = document.getElementById('stepContainer1');
         const stepContainer2 = document.getElementById('stepContainer2');
+        const stepContainer3 = document.getElementById('stepContainer3');
         const modalHeaderArea = document.getElementById('modalHeaderArea');
 
-        function navigateWizard(stepNumber) {
-            if (stepNumber === 2) {
-                // Ensure validation passes on Step 1 fields before transitioning
-                const firstName = document.getElementById('firstName');
-                const lastName = document.getElementById('lastName');
-                const workEmail = document.getElementById('workEmail');
-                const company = document.getElementById('company');
-                const website = document.getElementById('website');
-                const teamSize = document.getElementById('teamSize');
-
-                if (!firstName.checkValidity() || !lastName.checkValidity() || !workEmail.checkValidity() || !company.checkValidity() || !website.checkValidity() || !teamSize.checkValidity()) {
-                    firstName.reportValidity() || lastName.reportValidity() || workEmail.reportValidity() || company.reportValidity() || website.reportValidity() || teamSize.reportValidity();
-                    return;
-                }
-                
-                stepContainer1.classList.add('hidden');
-                stepContainer2.classList.remove('hidden');
-            } else {
-                stepContainer2.classList.add('hidden');
-                stepContainer1.classList.remove('hidden');
-            }
+        function openBookingModal(sourceName) {
+            bookingModal.classList.remove('hidden');
+            document.body.classList.add('overflow-y-hidden');
+            goToStep1(); // Initialize modal back to Step 1 cleanly
         }
 
-        // Intake Form Redirection handler
-        function handleFormSubmission(event) {
-            event.preventDefault();
+        function closeBookingModal() {
+            bookingModal.classList.add('hidden');
+            document.body.classList.remove('overflow-y-hidden');
+        }
 
-            // Symmetrical validation verification
-            const budget = document.getElementById('budget');
-            const reason = document.getElementById('frictionReason');
+        function goToStep1() {
+            stepContainer1.classList.remove('hidden');
+            stepContainer2.classList.add('hidden');
+            stepContainer3.classList.add('hidden');
+            modalHeaderArea.classList.remove('hidden');
+        }
 
-            if (!budget.checkValidity() || !reason.checkValidity()) {
-                budget.reportValidity() || reason.reportValidity();
+        function goToStep2() {
+            // Validate Step 1 Inputs prior to page transition
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const email = document.getElementById('workEmail');
+            const company = document.getElementById('company');
+            const teamSize = document.getElementById('teamSize');
+
+            if (!firstName.checkValidity() || !lastName.checkValidity() || !email.checkValidity() || !company.checkValidity() || !teamSize.checkValidity()) {
+                firstName.reportValidity() || lastName.reportValidity() || email.reportValidity() || company.reportValidity() || teamSize.reportValidity();
                 return;
             }
 
-            // Map inputs
+            stepContainer1.classList.add('hidden');
+            stepContainer2.classList.remove('hidden');
+            stepContainer3.classList.add('hidden');
+            modalHeaderArea.classList.remove('hidden');
+        }
+
+        function handleFormSubmission(event) {
+            event.preventDefault();
+
+            // Validate Step 2 Inputs prior to submit
+            const website = document.getElementById('website');
+            const budget = document.getElementById('budget');
+            const frictionReason = document.getElementById('frictionReason');
+
+            if (!website.checkValidity() || !budget.checkValidity() || !frictionReason.checkValidity()) {
+                website.reportValidity() || budget.reportValidity() || frictionReason.reportValidity();
+                return;
+            }
+
+            // Hide form and display clean redirect spinner
+            stepContainer2.classList.add('hidden');
+            modalHeaderArea.classList.add('hidden');
+            stepContainer3.classList.remove('hidden');
+
+            // Gather inputs
             const firstName = document.getElementById('firstName').value;
             const lastName = document.getElementById('lastName').value;
             const email = document.getElementById('workEmail').value;
             const company = document.getElementById('company').value;
-            const website = document.getElementById('website').value;
+            const websiteVal = website.value;
             const teamSize = document.getElementById('teamSize').value;
             const budgetVal = budget.value;
-            const reasonVal = reason.value;
+            const reason = frictionReason.value;
 
-            // Redirection string construction with parameters
+            // Generate booking link parameterized queries to pre-fill Notion Calendar/Calendly
             const baseUrl = "https://calendar.notion.so/meet/chaninthon/theatheer1";
             const params = new URLSearchParams({
                 name: `${firstName} ${lastName}`,
                 email: email,
-                website: website,
+                website: websiteVal,
                 company: company,
                 "team_size": teamSize,
                 "budget_range": budgetVal,
-                "details": reasonVal
+                "details": reason
             });
 
             const finalRedirectUrl = `${baseUrl}?${params.toString()}`;
-            console.log("Onboarding qualification parameter generated:", finalRedirectUrl);
 
-            // Instant redirect
-            window.location.href = finalRedirectUrl;
+            // Delay redirect slightly for premium feel
+            setTimeout(() => {
+                window.location.href = finalRedirectUrl;
+            }, 1500);
         }
     </script>
 </body>
