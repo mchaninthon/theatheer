@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THEA THEER | Strategic Operations Advisory for Agencies</title>
     
+    <!-- Structured SEO Meta Tags -->
+    <meta name="description" content="Strategic operations consultant & Fractional COO for advertising, digital, creative, and design agencies. Step out of the daily delivery loops, protect your profit margins, and build scalable SOP structures.">
+    <meta name="keywords" content="Agency operations consultant, Fractional COO for agencies, creative studio workflows, SOP alignment, ClickUp Asana implementation">
+    
     <!-- Google Fonts: Tenor Sans, Montserrat, & DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +17,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Custom Brand Theme Config & Rounding Constraints -->
+    <!-- Custom Brand Theme Config & Symmetrical Rounding Constraints -->
     <script>
         tailwind.config = {
           theme: {
@@ -35,8 +39,26 @@
         }
     </script>
     
+    <!-- Structured JSON-LD Professional Service Schema for SEO Indexing -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "THEA THEER",
+      "url": "https://thea-theer.com",
+      "telephone": "",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangkok",
+        "addressCountry": "TH"
+      },
+      "serviceType": ["Agency Operations Consulting", "Fractional COO Support", "Workflow Automation"],
+      "areaServed": "Global"
+    }
+    </script>
+    
     <style>
-        /* Hardware-accelerated CSS animations for guaranteed mobile performance */
+        /* Hardware-accelerated CSS animations for guaranteed cross-browser mobile performance */
         @keyframes rotatingOrbit {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
@@ -47,13 +69,13 @@
         .animate-orbit-reverse {
             animation: rotatingOrbit 20s linear infinite reverse;
         }
-        @keyframes pulseIndicator {
-            0%, 100% { stroke-dashoffset: 0; opacity: 0.3; }
-            50% { stroke-dashoffset: 24; opacity: 0.8; }
+        @keyframes subtleScale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
         }
-        .animate-pulse-track {
-            stroke-dasharray: 8;
-            animation: pulseIndicator 5s linear infinite;
+        .animate-subtle-scale {
+            transform-origin: center;
+            animation: subtleScale 8s ease-in-out infinite;
         }
     </style>
 </head>
@@ -73,7 +95,7 @@
                 <a href="#services" class="hover:text-brandBlue transition-colors">Services</a>
                 <a href="#case-studies" class="hover:text-brandBlue transition-colors">Case Studies</a>
                 <a href="#about" class="hover:text-brandBlue transition-colors">About</a>
-               <button onclick="openBookingModal()" class="bg-brandBlue text-white px-5 py-3 rounded-lg hover:bg-brandBlue/90 transition-all">
+                <button onclick="openBookingModal('Menu bar')" class="bg-brandBlue text-white px-5 py-3 rounded-lg hover:bg-brandBlue/90 transition-all">
                     LET'S TALK
                 </button>
             </div>
@@ -118,8 +140,8 @@
                 </div>
             </div>
 
-            <!-- Right Pentagram-Style Frameless Kinetic SVG Area (Completely responsive and matches GitHub) -->
-            <div class="lg:col-span-5 flex justify-center items-center pointer-events-none select-none">
+            <!-- Right Pentagram-Style Frameless Kinetic SVG Area -->
+            <div class="lg:col-span-5 flex justify-center items-center pointer-events-none select-none animate-subtle-scale">
                 <div class="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center">
                     <!-- Rotating Outer Tracking Rings -->
                     <div class="absolute inset-0 border border-brandSlate/10 rounded-full animate-orbit-slow"></div>
@@ -216,7 +238,7 @@
         <div class="max-w-4xl mx-auto text-center">
             <span class="font-montserrat text-xs text-brandOrange tracking-widest font-bold block mb-5 uppercase">THE INFLECTION POINT</span>
             <!-- Responsive Font Size ensures 2 lines max on mobile devices -->
-            <h3 class="font-tenor text-[22px] sm:text-2xl md:text-3xl font-light text-brandCharcoal leading-tight max-w-4xl mx-auto mb-6">
+            <h3 class="font-tenor text-[22px] sm:text-2xl md:text-3xl font-light text-brandCharcoal leading-tight max-w-4xl mx-auto mb-6 tracking-wide">
                 Are you running an agency, or is the agency running you?
             </h3>
             <p class="text-brandCharcoal/80 text-xs md:text-sm leading-relaxed max-w-2xl mx-auto">
@@ -240,45 +262,45 @@
         <div class="relative px-4">
             <!-- Symmetrical background trace line -->
             <div class="hidden lg:block absolute top-7 left-12 right-12 h-0.5 bg-brandCharcoal/10 z-0"></div>
-            <!-- Precise horizontal tracking animation vector (Responsive fallback handled) -->
+            <!-- Precise horizontal tracking animation vector -->
             <div id="methodPulse" class="hidden lg:block absolute top-6 left-12 w-2.5 h-2.5 rounded-full bg-brandBlue shadow-lg shadow-brandBlue/50 transition-all duration-700 ease-in-out z-10"></div>
 
             <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-6 relative z-10">
                 <!-- 01 -->
                 <div class="method-step text-center opacity-100 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm">01</div>
+                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm transition-all">01</div>
                     <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandCharcoal">DIAGNOSE</h4>
-                    <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Identify operational leaks.</p>
+                    <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Locate internal friction and leaks.</p>
                 </div>
                 <!-- 02 -->
                 <div class="method-step text-center opacity-40 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm">02</div>
-                    <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandBlue">ISOLATE FRICTION</h4>
-                    <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Target major bottlenecks.</p>
+                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm transition-all">02</div>
+                    <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandBlue">ISOLATE THE FRICTION</h4>
+                    <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Pinpoint the highest-leverage challenge.</p>
                 </div>
                 <!-- 03 -->
                 <div class="method-step text-center opacity-40 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm">03</div>
+                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm transition-all">03</div>
                     <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandOrange">BUILD CORE BRIDGE</h4>
                     <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Deploy target SOP blueprints.</p>
                 </div>
                 <!-- 04 -->
                 <div class="method-step text-center opacity-40 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm">04</div>
+                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm transition-all">04</div>
                     <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandCharcoal font-semibold">TEAM ALIGNMENT</h4>
                     <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Train team leads for autonomy.</p>
                 </div>
                 <!-- 05 -->
                 <div class="method-step text-center opacity-40 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm">05</div>
+                    <div class="w-14 h-14 rounded-full bg-brandCream border border-brandCharcoal/20 text-brandCharcoal flex items-center justify-center font-tenor text-sm font-bold mx-auto mb-4 hover:border-brandBlue shadow-sm transition-all">05</div>
                     <h4 class="font-montserrat font-bold text-xs uppercase tracking-wider mb-2 text-brandBlue">OPTIMIZATION</h4>
-                    <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Continuous audit reviews.</p>
+                    <p class="text-brandCharcoal/65 text-xs max-w-[140px] mx-auto">Evaluate and Continuous Improvement.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 4: SERVICES & OPERATIONAL PARTNERSHIP -->
+    <!-- SECTION 4: SERVICES & OPERATIONAL PARTNERSHIP (Symmetrical Height Grid) -->
     <section id="services" class="bg-brandCream border-t border-brandCharcoal/5 py-24 px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
             <div class="max-w-2xl mb-16">
@@ -286,9 +308,9 @@
                 <h2 class="font-tenor text-3xl md:text-5xl font-light text-brandCharcoal">OPERATIONAL PARTNERSHIP</h2>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
                 <!-- DIAGNOSTIC -->
-                <div class="border border-brandCharcoal/10 p-8 rounded-lg bg-white/40 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="border border-brandCharcoal/10 p-8 rounded-lg bg-white/40 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 h-full">
                     <div>
                         <div class="flex justify-between items-center mb-6">
                             <span class="font-montserrat text-[10px] font-bold tracking-widest text-brandBlue uppercase">DIAGNOSTIC</span>
@@ -299,38 +321,38 @@
                             Best for founders who need to locate operational leaks and require a precise and unbiased actionable blueprint to fix them.
                         </p>
                         
-                        <div class="border-t border-brandCharcoal/10 pt-6 mt-6 space-y-4 text-xs text-brandCharcoal/80 mb-8">
+                        <!-- Restructured to match Symmetrical Bold Title: Description format -->
+                        <div class="border-t border-brandCharcoal/10 pt-6 mt-6 space-y-4 text-xs text-brandCharcoal/80 mb-8 flex-grow">
                             <p class="flex items-start gap-2">
                                 <span class="text-brandBlue font-bold">&rarr;</span>
-                                <span>Complete analysis of current pipelines and workspaces</span>
+                                <span><strong>Pipeline Analysis:</strong> Complete analysis of current pipelines and workspaces.</span>
                             </p>
                             <p class="flex items-start gap-2">
                                 <span class="text-brandBlue font-bold">&rarr;</span>
-                                <span>Diagnostic mapping of key friction areas</span>
+                                <span><strong>Friction Mapping:</strong> Diagnostic mapping of key friction areas.</span>
                             </p>
                             <p class="flex items-start gap-2">
                                 <span class="text-brandBlue font-bold">&rarr;</span>
-                                <span>Diagnostic report</span>
+                                <span><strong>Diagnostic Report:</strong> Detailed operational performance metrics and breakdowns.</span>
                             </p>
                             <p class="flex items-start gap-2">
                                 <span class="text-brandBlue font-bold">&rarr;</span>
-                                <span>Actionable 90-day roadmap</span>
+                                <span><strong>90-Day Roadmap:</strong> Actionable 90-day strategy mapping.</span>
                             </p>
                             <p class="flex items-start gap-2">
                                 <span class="text-brandBlue font-bold">&rarr;</span>
-                                <span>1-on-1 strategic alignment briefing</span>
+                                <span><strong>Strategic Briefing:</strong> 1-on-1 strategic alignment briefing.</span>
                             </p>
                         </div>
                     </div>
-                    <!-- Increased button font-size to 12px / font-semibold for symmetry -->
-                    <button onclick="openBookingModal('Friction Finder')" class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg">
+                    <button onclick="openBookingModal('Friction Finder')" class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg mt-auto">
                         Book for Diagnostic
                     </button>
                 </div>
 
                 <!-- IMPLEMENTATION -->
-                <div class="border-2 border-brandBlue p-8 rounded-lg bg-white/40 flex flex-col justify-between relative shadow-md hover:shadow-lg transition-all duration-300">
-                    <span class="absolute -top-3.5 left-6 bg-brandBlue text-white font-montserrat text-[9px] font-bold tracking-widest px-3 py-1 rounded-sm uppercase">HIGH EFFICIENCY</span>
+                <div class="border-2 border-brandBlue p-8 rounded-lg bg-white/40 flex flex-col justify-between relative shadow-md hover:shadow-lg transition-all duration-300 h-full">
+                    <span class="absolute -top-3.5 left-6 bg-brandBlue text-white font-montserrat text-[9px] font-bold tracking-widest px-3 py-1 rounded-sm uppercase">HIGH LEVERAGE</span>
                     <div>
                         <div class="flex justify-between items-center mb-6">
                             <span class="font-montserrat text-[10px] font-bold tracking-widest text-brandBlue uppercase">IMPLEMENTATION</span>
@@ -341,18 +363,18 @@
                             A comprehensive partnership to eliminate your highest-leverage friction point and meet your agency's objectives.
                         </p>
                         
-                        <div class="border-t border-brandCharcoal/10 pt-6 mt-6 space-y-4 text-xs text-brandCharcoal/80 mb-8">
+                        <div class="border-t border-brandCharcoal/10 pt-6 mt-6 space-y-4 text-xs text-brandCharcoal/80 mb-8 flex-grow">
                             <p class="flex items-start gap-2">
                                 <span class="text-brandBlue font-bold">&rarr;</span>
                                 <span><strong>Bespoke Architecture:</strong> Workflows engineered around your business's target outcomes.</span>
                             </p>
                             <p class="flex items-start gap-2">
                                 <span class="text-brandBlue font-bold">&rarr;</span>
-                                <span><strong>Operational Certainty:</strong> Targeted SOPs built specifically for major objectives—clear, non-bloated plays your team will actually use.</span>
+                                <span><strong>Operational Certainty:</strong> Targeted SOPs built specifically for major objectives—clear and non-bloated.</span>
                             </p>
                             <p class="flex items-start gap-2">
                                 <span class="text-brandBlue font-bold">&rarr;</span>
-                                <span><strong>Cadence & Culture:</strong> Weekly team lead alignment meetings to embed absolute accountability and protect your time.</span>
+                                <span><strong>Cadence & Culture:</strong> Weekly team lead alignment meetings to embed absolute accountability.</span>
                             </p>
                             <p class="flex items-start gap-2">
                                 <span class="text-brandBlue font-bold">&rarr;</span>
@@ -360,13 +382,13 @@
                             </p>
                         </div>
                     </div>
-                    <button onclick="openBookingModal('Alignment Sprint')" class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider bg-brandBlue text-white hover:bg-brandBlue/90 transition-all py-4 rounded-lg">
+                    <button onclick="openBookingModal('Alignment Sprint')" class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider bg-brandBlue text-white hover:bg-brandBlue/90 transition-all py-4 rounded-lg mt-auto">
                         Book for Sprint
                     </button>
                 </div>
 
                 <!-- ADVISORY -->
-                <div class="border border-brandCharcoal/10 p-8 rounded-lg bg-white/40 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300">
+                <div class="border border-brandCharcoal/10 p-8 rounded-lg bg-white/40 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 h-full">
                     <div>
                         <div class="flex justify-between items-center mb-6">
                             <span class="font-montserrat text-[10px] font-bold tracking-widest text-brandOrange uppercase">ADVISORY</span>
@@ -377,26 +399,26 @@
                             A bespoke partnership tailored to your goals and timeline to stabilize operations, protect capacity, and scale.
                         </p>
                         
-                        <div class="border-t border-brandCharcoal/10 pt-6 mt-6 space-y-4 text-xs text-brandCharcoal/80 mb-8">
+                        <div class="border-t border-brandCharcoal/10 pt-6 mt-6 space-y-4 text-xs text-brandCharcoal/80 mb-8 flex-grow">
                             <p class="flex items-start gap-2">
                                 <span class="text-brandOrange font-bold">&rarr;</span>
-                                <span><strong>Operational Stability:</strong> Continuous governance to keep your internal infrastructure clean, reliable, and built to anchor long-term growth.</span>
+                                <span><strong>Operational Stability:</strong> Continuous governance to keep your internal infrastructure clean and reliable.</span>
                             </p>
                             <p class="flex items-start gap-2">
                                 <span class="text-brandOrange font-bold">&rarr;</span>
-                                <span><strong>Resource & Capacity:</strong> Dynamic pipeline analysis and margin assessments to balance team bandwidth with incoming revenue.</span>
+                                <span><strong>Resource & Capacity:</strong> Dynamic pipeline analysis to balance team bandwidth with incoming revenue.</span>
                             </p>
                             <p class="flex items-start gap-2">
                                 <span class="text-brandOrange font-bold">&rarr;</span>
-                                <span><strong>Custom Engagement Timelines:</strong> Flexible structures mapped strictly to your desired scope—whether as an extended sprint or ongoing advisory.</span>
+                                <span><strong>Engagement Timelines:</strong> Flexible structures mapped strictly to your desired scope.</span>
                             </p>
                             <p class="flex items-start gap-2">
                                 <span class="text-brandOrange font-bold">&rarr;</span>
-                                <span><strong>Strategic Alignment:</strong> Tailored accountability workflows for your team leads, keeping execution clear while freeing up the founder.</span>
+                                <span><strong>Strategic Alignment:</strong> Tailored accountability workflows for your team leads, freeing the founder.</span>
                             </p>
                         </div>
                     </div>
-                    <button onclick="openBookingModal('Fractional COO')" class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg">
+                    <button onclick="openBookingModal('Fractional COO')" class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg mt-auto">
                         Inquire for Bespoke
                     </button>
                 </div>
@@ -425,9 +447,8 @@
                     </p>
                 </div>
                 <div class="border-t border-brandCharcoal/10 pt-4 flex justify-between items-center">
-                    <!-- Scaled outcomes figures as requested -->
-                    <span class="text-base font-bold font-montserrat text-brandOrange tracking-wide">+36% Revenue Lift</span>
-                    <button onclick="openSpecificCase(0)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1">
+                    <span class="text-base font-bold font-montserrat text-brandOrange tracking-wide">+36% Revenue  YoY</span>
+                    <button onclick="openSpecificCase(0)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1" aria-label="View Details for Creative Agency Ops Model">
                         Details &rarr;
                     </button>
                 </div>
@@ -444,7 +465,7 @@
                 </div>
                 <div class="border-t border-brandCharcoal/10 pt-4 flex justify-between items-center">
                     <span class="text-base font-bold font-montserrat text-brandOrange tracking-wide">120% KPI Increase</span>
-                    <button onclick="openSpecificCase(1)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1">
+                    <button onclick="openSpecificCase(1)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1" aria-label="View Details for Automotive Experience Flagship">
                         Details &rarr;
                     </button>
                 </div>
@@ -461,16 +482,16 @@
                 </div>
                 <div class="border-t border-brandCharcoal/10 pt-4 flex justify-between items-center">
                     <span class="text-base font-bold font-montserrat text-brandOrange tracking-wide">5-Tier Pricing</span>
-                    <button onclick="openSpecificCase(2)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1">
+                    <button onclick="openSpecificCase(2)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1" aria-label="View Details for Skincare Commerce Strategy">
                         Details &rarr;
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- More Case Studies link placed directly under sample cards -->
+        <!-- More Case Studies -->
         <div class="mt-12 text-left">
-            <button onclick="openDrawer()" class="font-montserrat text-xs uppercase tracking-widest font-bold text-brandCharcoal hover:text-brandBlue transition-colors inline-flex items-center gap-2">
+            <button onclick="openDrawer()" class="font-montserrat text-xs uppercase tracking-widest font-bold text-brandCharcoal hover:text-brandOrange transition-colors inline-flex items-center gap-2">
                 More case studies &rarr;
             </button>
         </div>
@@ -492,7 +513,7 @@
                 <!-- Strategic name & title block moved directly under image frame -->
                 <div class="space-y-3">
                     <p class="font-tenor text-2xl font-bold tracking-wider text-brandCharcoal m-0">Thea Theer</p>
-                    <p class="text-[10px] font-bold text-brandSlate tracking-widest uppercase font-montserrat m-0">Strategic Operations Consultant</p>
+                    <p class="text-[10px] font-bold text-brandSlate tracking-widest uppercase font-montserrat m-0">Strategic Operations Consultant & Fractional COO</p>
                 </div>
 
                 <!-- Premium SVG Icons for Social Platforms -->
@@ -584,11 +605,11 @@
     </div>
 
 
-    <!-- ============================================ -->
+    <!-- ========================================================= -->
     <!-- INTERACTIVE MODAL: REDESIGNED MOBILE-SAFE 2-STEP CARD -->
-    <!-- ============================================ -->
+    <!-- ========================================================= -->
     <!-- Fixed items-start combined with overflow-y-auto ensures robust mobile/tablet scrolling support -->
-    <div id="bookingModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden overflow-y-auto flex items-start justify-center p-4 md:p-10">
+    <div id="bookingModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden overflow-y-auto flex items-start justify-center p-4 md:p-10" onclick="handleBackdropClick(event)">
         <!-- my-8 and pointer-events-auto ensures clean margins and interaction boundaries -->
         <div class="relative bg-brandCream border border-brandCharcoal/10 rounded-xl max-w-xl w-full p-6 md:p-10 my-8 shadow-2xl pointer-events-auto z-10 transition-all duration-300">
             
@@ -600,16 +621,19 @@
             <!-- Headline elements completely decoupled from onboarding/qualification terms -->
             <div id="modalHeaderArea" class="mb-6">
                 <h3 class="font-tenor text-2xl font-light text-brandCharcoal mb-2 mt-4 leading-snug">
-                    Let's start with the basics.
+                    Let’s check the alignment.
                 </h3>
                 <p class="text-xs text-brandCharcoal/70 font-dm leading-relaxed">
-                    Tell us where you're headed. We'll tell you honestly if we can help — and exactly how.
+                    Share your current scope. I'll tell you honestly whether we are a good fit.
                 </p>
             </div>
 
             <!-- Two-step intake wizard form -->
             <form id="stepForm" class="space-y-6" onsubmit="handleFormSubmission(event)">
-                <!-- STEP 1: Core Contact Coordinates -->
+                <!-- Hidden parameter to capture tracking context cleanly -->
+                <input type="hidden" id="bookingSource" value="">
+
+                <!-- STEP 1: Core Contact Coordinates (Includes Website and Company Name) -->
                 <div id="stepContainer1" class="space-y-6 transition-all duration-300">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
@@ -633,6 +657,22 @@
                             <input type="text" id="company" placeholder="Creative Lab" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required>
                         </div>
                         <div>
+                            <!-- URL type set to text to prevent rigid browser-level protocol exceptions -->
+                            <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Website/Social Media URL</label>
+                            <input type="text" id="website" placeholder="www.creativelab.com" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required>
+                        </div>
+                    </div>
+
+                    <!-- CTA button to transition to Page 2 -->
+                    <button type="button" onclick="goToStep2()" class="w-full bg-brandBlue text-white font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg shadow-md hover:bg-brandBlue/90 transition-all">
+                        Continue &rarr;
+                    </button>
+                </div>
+
+                <!-- STEP 2: Scoping parameters (Includes Team Size, Budget, and Goals) -->
+                <div id="stepContainer2" class="hidden space-y-6 transition-all duration-300">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
                             <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Team Size</label>
                             <select id="teamSize" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none text-brandCharcoal text-sm" required>
                                 <option value="">Select Option</option>
@@ -643,40 +683,25 @@
                                 <option value="50+">More than 50 team members</option>
                             </select>
                         </div>
-                    </div>
-
-                    <!-- CTA button to transition to Page 2 -->
-                    <button type="button" onclick="goToStep2()" class="w-full bg-brandBlue text-white font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg shadow-md hover:bg-brandBlue/90 transition-all">
-                        Continue &rarr;
-                    </button>
-                </div>
-
-                <!-- STEP 2: Goals, Website, Budget & Redirect Confirmation -->
-                <div id="stepContainer2" class="hidden space-y-6 transition-all duration-300">
-                    <div>
-                        <!-- type="text" cleanly resolves the strict URL format validation bug -->
-                        <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Website/Social Media URL</label>
-                        <input type="text" id="website" placeholder="www.creativelab.com" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required>
-                    </div>
-
-                    <div>
-                        <!-- Dropped the word "operations" to avoid misleading users -->
-                        <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Monthly Budget</label>
-                        <select id="budget" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none text-brandCharcoal text-sm" required>
-                            <option value="">Select Range</option>
-                            <option value="under-$1k">Under $1,000</option>
-                            <option value="$1k-$3k">$1,000 - $3,000</option>
-                            <option value="$3k-$5k">$3,000 - $5,000</option>
-                            <option value="$5k-$10k">$5,000 - $10,000</option>
-                            <option value="$10k-$20k">$10,000 - $20,000</option>
-                            <option value="$20k+">More than $20,000</option>
-                        </select>
+                        <div>
+                            <!-- Dropped the word "operations" to prevent budget misalignment -->
+                            <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat">Monthly Budget</label>
+                            <select id="budget" class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none text-brandCharcoal text-sm" required>
+                                <option value="">Select Range</option>
+                                <option value="under-$1k">Under $1,000</option>
+                                <option value="$1k-$3k">$1,000 - $3,000</option>
+                                <option value="$3k-$5k">$3,000 - $5,000</option>
+                                <option value="$5k-$10k">$5,000 - $10,000</option>
+                                <option value="$10k-$20k">$10,000 - $20,000</option>
+                                <option value="$20k+">More than $20,000</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div>
-                        <!-- Condensed highly balanced goals question -->
+                        <!-- High-converting scoping question block -->
                         <label class="block text-[10px] font-bold tracking-widest uppercase text-brandCharcoal/70 mb-2 font-montserrat leading-relaxed">
-                            What are your primary goals and what do you need most right now?
+                            What are your primary goals and what structural challenges brought you here today?
                         </label>
                         <textarea id="frictionReason" rows="3" placeholder="e.g., Streamlining handoffs, structural alignment, or protecting margins..." class="w-full bg-white/40 border border-brandCharcoal/10 rounded-lg p-3 focus:outline-none focus:border-brandBlue text-brandCharcoal" required></textarea>
                     </div>
@@ -857,16 +882,27 @@
         const stepContainer2 = document.getElementById('stepContainer2');
         const stepContainer3 = document.getElementById('stepContainer3');
         const modalHeaderArea = document.getElementById('modalHeaderArea');
+        const bookingSourceInput = document.getElementById('bookingSource');
 
         function openBookingModal(sourceName) {
             bookingModal.classList.remove('hidden');
             document.body.classList.add('overflow-y-hidden');
+            if (bookingSourceInput && sourceName) {
+                bookingSourceInput.value = sourceName;
+            }
             goToStep1(); // Initialize modal back to Step 1 cleanly
         }
 
         function closeBookingModal() {
             bookingModal.classList.add('hidden');
             document.body.classList.remove('overflow-y-hidden');
+        }
+
+        function handleBackdropClick(event) {
+            // Allows closing the modal cleanly on backdrop click (standard premium UX)
+            if (event.target === bookingModal) {
+                closeBookingModal();
+            }
         }
 
         function goToStep1() {
@@ -882,10 +918,10 @@
             const lastName = document.getElementById('lastName');
             const email = document.getElementById('workEmail');
             const company = document.getElementById('company');
-            const teamSize = document.getElementById('teamSize');
+            const website = document.getElementById('website');
 
-            if (!firstName.checkValidity() || !lastName.checkValidity() || !email.checkValidity() || !company.checkValidity() || !teamSize.checkValidity()) {
-                firstName.reportValidity() || lastName.reportValidity() || email.reportValidity() || company.reportValidity() || teamSize.reportValidity();
+            if (!firstName.checkValidity() || !lastName.checkValidity() || !email.checkValidity() || !company.checkValidity() || !website.checkValidity()) {
+                firstName.reportValidity() || lastName.reportValidity() || email.reportValidity() || company.reportValidity() || website.reportValidity();
                 return;
             }
 
@@ -898,13 +934,13 @@
         function handleFormSubmission(event) {
             event.preventDefault();
 
-            // Validate Step 2 Inputs prior to submit
-            const website = document.getElementById('website');
+            // Validate Step 2 Inputs prior to submit (Now aligns perfectly with Step 2 variables)
+            const teamSize = document.getElementById('teamSize');
             const budget = document.getElementById('budget');
             const frictionReason = document.getElementById('frictionReason');
 
-            if (!website.checkValidity() || !budget.checkValidity() || !frictionReason.checkValidity()) {
-                website.reportValidity() || budget.reportValidity() || frictionReason.reportValidity();
+            if (!teamSize.checkValidity() || !budget.checkValidity() || !frictionReason.checkValidity()) {
+                teamSize.reportValidity() || budget.reportValidity() || frictionReason.reportValidity();
                 return;
             }
 
@@ -918,10 +954,11 @@
             const lastName = document.getElementById('lastName').value;
             const email = document.getElementById('workEmail').value;
             const company = document.getElementById('company').value;
-            const websiteVal = website.value;
-            const teamSize = document.getElementById('teamSize').value;
+            const websiteVal = document.getElementById('website').value;
+            const teamSizeVal = teamSize.value;
             const budgetVal = budget.value;
             const reason = frictionReason.value;
+            const source = bookingSourceInput ? bookingSourceInput.value : '';
 
             // Generate booking link parameterized queries to pre-fill Notion Calendar/Calendly
             const baseUrl = "https://calendar.notion.so/meet/chaninthon/theatheer1";
@@ -930,9 +967,10 @@
                 email: email,
                 website: websiteVal,
                 company: company,
-                "team_size": teamSize,
+                "team_size": teamSizeVal,
                 "budget_range": budgetVal,
-                "details": reason
+                "details": reason,
+                "utm_source": source
             });
 
             const finalRedirectUrl = `${baseUrl}?${params.toString()}`;
