@@ -121,7 +121,7 @@
                 THE<span class="text-brandBlue">A</span><span class="text-brandOrange">·</span>THEER
             </a>
             
-            <!-- Custom Navigation Menu (Equipped with Cal.com data attributes) -->
+            <!-- Custom Navigation Menu (Linked directly to Cal.com 15-min overlay) -->
             <div class="hidden md:flex items-center space-x-10 font-montserrat text-xs uppercase tracking-widest font-semibold">
                 <a href="#challenges" class="hover:text-brandBlue transition-colors">Method</a>
                 <a href="#services" class="hover:text-brandBlue transition-colors">Services</a>
@@ -165,6 +165,7 @@
                     We design custom operational environments that restore clarity to agency leaders. Step out of day-to-day delivery loops, protect your margins, and build a self-managing infrastructure.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
+                    <!-- Adjusted Hero CTA to open Cal.com 15-min overlay -->
                     <button data-cal-link="thea-theer/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"auto"}' class="bg-brandOrange text-white font-montserrat uppercase text-xs tracking-widest font-bold px-8 py-5 rounded-lg hover:bg-brandOrange/90 transition-all shadow-md text-center">
                         Identify Your Operational Leaks
                     </button>
@@ -334,7 +335,7 @@
         </div>
     </section>
 
-    <!-- SECTION 4: SERVICES & OPERATIONAL PARTNERSHIP (Perfect Symmetrical Height Grid) -->
+    <!-- SECTION 5: SERVICES & OPERATIONAL PARTNERSHIP (Perfect Symmetrical Height Grid) -->
     <section id="services" class="bg-brandCream border-t border-brandCharcoal/5 py-24 px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
             <div class="max-w-2xl mb-16">
@@ -736,24 +737,6 @@
             document.body.classList.add('overflow-y-hidden');
         }
 
-        function closeDrawer() {
-            caseStudiesDrawer.classList.add('translate-x-full');
-            setTimeout(() => {
-                drawerOverlay.classList.add('hidden');
-            }, 300);
-            document.body.classList.remove('overflow-y-hidden');
-        }
-
-        function openSpecificCase(index) {
-            openDrawer();
-            setTimeout(() => {
-                const elements = caseListContainer.children;
-                if (elements[index]) {
-                    elements[index].scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 350);
-        }
-
         // Section 4: Symmetrical Pulse Loop Pipeline (Horizontal Desktop / Dynamic Vertical Mobile)
         const methodPulse = document.getElementById('methodPulse');
         const methodPulseMobile = document.getElementById('methodPulseMobile');
@@ -805,108 +788,22 @@
         }
         animateMethodPipeline();
 
-        // 2-Step Modal Control Elements
-        const bookingModal = document.getElementById('bookingModal');
-        const stepContainer1 = document.getElementById('stepContainer1');
-        const stepContainer2 = document.getElementById('stepContainer2');
-        const stepContainer3 = document.getElementById('stepContainer3');
-        const modalHeaderArea = document.getElementById('modalHeaderArea');
-        const bookingSourceInput = document.getElementById('bookingSource');
-
-        function openBookingModal(sourceName) {
-            bookingModal.classList.remove('hidden');
-            document.body.classList.add('overflow-y-hidden');
-            if (bookingSourceInput && sourceName) {
-                bookingSourceInput.value = sourceName;
-            }
-            goToStep1(); // Initialize modal back to Step 1 cleanly
-        }
-
-        function closeBookingModal() {
-            bookingModal.classList.add('hidden');
+        function closeDrawer() {
+            caseStudiesDrawer.classList.add('translate-x-full');
+            setTimeout(() => {
+                drawerOverlay.classList.add('hidden');
+            }, 300);
             document.body.classList.remove('overflow-y-hidden');
         }
 
-        function handleBackdropClick(event) {
-            if (event.target === bookingModal) {
-                closeBookingModal();
-            }
-        }
-
-        function goToStep1() {
-            stepContainer1.classList.remove('hidden');
-            stepContainer2.classList.add('hidden');
-            stepContainer3.classList.add('hidden');
-            modalHeaderArea.classList.remove('hidden');
-        }
-
-        function goToStep2() {
-            // Validate Step 1 Inputs prior to page transition
-            const firstName = document.getElementById('firstName');
-            const lastName = document.getElementById('lastName');
-            const email = document.getElementById('workEmail');
-            const company = document.getElementById('company');
-            const website = document.getElementById('website');
-
-            if (!firstName.checkValidity() || !lastName.checkValidity() || !email.checkValidity() || !company.checkValidity() || !website.checkValidity()) {
-                firstName.reportValidity() || lastName.reportValidity() || email.reportValidity() || company.reportValidity() || website.reportValidity();
-                return;
-            }
-
-            stepContainer1.classList.add('hidden');
-            stepContainer2.classList.remove('hidden');
-            stepContainer3.classList.add('hidden');
-            modalHeaderArea.classList.remove('hidden');
-        }
-
-        function handleFormSubmission(event) {
-            event.preventDefault();
-
-            // Validate Step 2 Inputs prior to submit (Now aligns with Step 2 variables)
-            const teamSize = document.getElementById('teamSize');
-            const budget = document.getElementById('budget');
-            const frictionReason = document.getElementById('frictionReason');
-
-            if (!teamSize.checkValidity() || !budget.checkValidity() || !frictionReason.checkValidity()) {
-                teamSize.reportValidity() || budget.reportValidity() || frictionReason.reportValidity();
-                return;
-            }
-
-            // Hide form and display clean redirect spinner
-            stepContainer2.classList.add('hidden');
-            modalHeaderArea.classList.add('hidden');
-            stepContainer3.classList.remove('hidden');
-
-            // Gather inputs
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('workEmail').value;
-            const company = document.getElementById('company').value;
-            const websiteVal = document.getElementById('website').value;
-            const teamSizeVal = teamSize.value;
-            const budgetVal = budget.value;
-            const reason = frictionReason.value;
-            const source = bookingSourceInput ? bookingSourceInput.value : '';
-
-            // Generate booking link parameterized queries to pre-fill Notion Calendar/Calendly
-            const baseUrl = "https://calendar.notion.so/meet/chaninthon/theatheer1";
-            const params = new URLSearchParams({
-                name: `${firstName} ${lastName}`,
-                email: email,
-                website: websiteVal,
-                company: company,
-                "team_size": teamSizeVal,
-                "budget_range": budgetVal,
-                "details": reason,
-                "utm_source": source
-            });
-
-            const finalRedirectUrl = `${baseUrl}?${params.toString()}`;
-
-            // Delay redirect slightly for premium feel
+        function openSpecificCase(index) {
+            openDrawer();
             setTimeout(() => {
-                window.location.href = finalRedirectUrl;
-            }, 1500);
+                const elements = caseListContainer.children;
+                if (elements[index]) {
+                    elements[index].scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 350);
         }
     </script>
 </body>
