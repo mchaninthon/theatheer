@@ -947,12 +947,7 @@
                 "utm_source": source
             });
 
-            const finalRedirectUrl = `${baseUrl}?${params.toString()}`;
-
-            // Delay redirect slightly for premium feel
-            setTimeout(() => {
-                window.location.href = finalRedirectUrl;
-            }, 1500);
+            const finalRedirectUrl = `${baseUrl}?${params.toString()}`;          
         }
     </script>
 </body>
