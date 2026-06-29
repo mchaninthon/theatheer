@@ -25,7 +25,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="assets/Thea-Favicon.ico/apple-icon-120x120.png">
     <link rel="apple-touch-icon" sizes="144x144" href="assets/Thea-Favicon.ico/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="assets/Thea-Favicon.ico/apple-icon-152x152.png">
-    <link class="apple-touch-icon" sizes="180x180" href="assets/Thea-Favicon.ico/apple-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/Thea-Favicon.ico/apple-icon-180x180.png">
     
     <!-- Android Manifest Integration -->
     <link rel="manifest" href="assets/Thea-Favicon.ico/manifest.json">
@@ -81,6 +81,24 @@
     }
     </script>
     
+    <!-- ============================================ -->
+    <!-- CAL.COM INTEGRATED OVERLAY EMBED INITIALIZATION -->
+    <!-- ============================================ -->
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      
+      // Initialize 15-Min Meeting Namespace
+      Cal("init", "15min", {origin:"https://app.cal.com"});
+      Cal.ns["15min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#131407"},"dark":{"cal-brand":"#F8F4E5"}},"hideEventTypeDetails":false,"layout":"month_view"});
+      
+      // Initialize 30-Min Strategic Session Namespace
+      Cal("init", "30min", {origin:"https://app.cal.com"});
+      Cal.ns["30min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#131407"},"dark":{"cal-brand":"#F8F4E5"}},"hideEventTypeDetails":false,"layout":"month_view"});
+      
+      Cal.config = Cal.config || {};
+      Cal.config.forwardQueryParams = true;
+    </script>
+    
     <style>
         /* Hardware-accelerated CSS animations for guaranteed cross-browser mobile performance */
         @keyframes rotatingOrbit {
@@ -121,13 +139,18 @@
                 THE<span class="text-brandBlue">A</span><span class="text-brandOrange">·</span>THEER
             </a>
             
-            <!-- Custom Navigation Menu (Trigger 15-min Cal Overlay) -->
+            <!-- Custom Navigation Menu -->
             <div class="hidden md:flex items-center space-x-10 font-montserrat text-xs uppercase tracking-widest font-semibold">
                 <a href="#challenges" class="hover:text-brandBlue transition-colors">Method</a>
                 <a href="#services" class="hover:text-brandBlue transition-colors">Services</a>
                 <a href="#case-studies" class="hover:text-brandBlue transition-colors">Case Studies</a>
                 <a href="#about" class="hover:text-brandBlue transition-colors">About</a>
-                <button data-cal-link="thea-theer/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"auto"}' class="bg-brandBlue text-white px-5 py-3 rounded-lg hover:bg-brandBlue/90 transition-all">
+                <!-- Bound to 15-Min Cal.com Overlay -->
+                <button 
+                  data-cal-link="thea-theer/15min" 
+                  data-cal-namespace="15min" 
+                  data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"auto"}' 
+                  class="bg-brandBlue text-white px-5 py-3 rounded-lg hover:bg-brandBlue/90 transition-all font-montserrat font-bold tracking-wider text-xs">
                     LET'S TALK
                 </button>
             </div>
@@ -138,13 +161,20 @@
             </button>
         </div>
         
-        <!-- Mobile Dropdown Menu (Trigger 15-min Cal Overlay) -->
-        <div id="mobileMenu" class="hidden md:hidden flex flex-col space-y-4 pt-5 pb-3 border-t border-brandCharcoal/10 font-montserrat text-xs uppercase tracking-widest font-semibold mt-4">
+        <!-- Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden flex flex-col space-y-4 pt-5 pb-3 border-t border-brandCharcoal/10 font-montserrat text-xs uppercase tracking-widest font-semibold mt-4 text-left">
             <a href="#challenges" class="block hover:text-brandBlue">Method</a>
             <a href="#services" class="block hover:text-brandBlue">Services</a>
             <a href="#case-studies" class="block hover:text-brandBlue">Case Studies</a>
             <a href="#about" class="block hover:text-brandBlue">About</a>
-            <button data-cal-link="thea-theer/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"auto"}' class="block w-full text-left hover:text-brandBlue py-2">LET'S TALK</button>
+            <!-- Bound to 15-Min Cal.com Overlay for Mobile -->
+            <button 
+              data-cal-link="thea-theer/15min" 
+              data-cal-namespace="15min" 
+              data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"auto"}' 
+              class="block w-full text-left hover:text-brandBlue py-2 font-montserrat font-bold tracking-widest text-xs">
+                LET'S TALK
+            </button>
         </div>
     </nav>
 
@@ -153,7 +183,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center">
             
             <!-- Left Copy Area -->
-            <div class="lg:col-span-7 relative z-10">
+            <div class="lg:col-span-7 relative z-10 text-left">
                 <p class="text-brandBlue font-montserrat font-bold tracking-widest text-[11px] md:text-xs uppercase mb-5">
                     FOR AGENCY FOUNDERS, OWNERS & DIRECTORS
                 </p>
@@ -165,14 +195,18 @@
                     We design custom operational environments that restore clarity to agency leaders. Step out of day-to-day delivery loops, protect your margins, and build a self-managing infrastructure.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <!-- Trigger 15-min Cal Overlay -->
-                    <button data-cal-link="thea-theer/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"auto"}' class="bg-brandOrange text-white font-montserrat uppercase text-xs tracking-widest font-bold px-8 py-5 rounded-lg hover:bg-brandOrange/90 transition-all shadow-md text-center">
+                    <!-- Bound to 15-Min Cal.com Overlay (Brand Orange CTA) -->
+                    <button 
+                      data-cal-link="thea-theer/15min" 
+                      data-cal-namespace="15min" 
+                      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"auto"}' 
+                      class="bg-brandOrange text-white font-montserrat uppercase text-xs tracking-widest font-bold px-8 py-5 rounded-lg hover:bg-brandOrange/90 transition-all shadow-md text-center">
                         Identify Your Operational Leaks
                     </button>
                 </div>
             </div>
 
-            <!-- Right Pentagram-Style Frameless Kinetic SVG Area -->
+            <!-- Right Pentagram-Style Frameless Kinetic SVG Area (Responsive & GitHub compatible) -->
             <div class="lg:col-span-5 flex justify-center items-center pointer-events-none select-none animate-subtle-scale">
                 <div class="relative w-72 h-72 md:w-80 md:h-80 flex items-center justify-center">
                     <!-- Rotating Outer Tracking Rings -->
@@ -207,12 +241,12 @@
     <section id="challenges" class="bg-brandCharcoal text-brandCream py-24 px-6 md:px-12">
         <div class="max-w-7xl mx-auto">
             <p class="text-brandOrange font-montserrat font-semibold tracking-widest text-xs uppercase mb-3">THE HARD TRUTH</p>
-            <h2 class="font-tenor text-3xl md:text-5xl font-light mb-4 text-brandCream">THE REALITY OF SCALING</h2>
-            <p class="text-brandSlate text-base md:text-lg max-w-2xl mb-16 leading-relaxed">
+            <h2 class="font-tenor text-3xl md:text-5xl font-light mb-4 text-brandCream text-left">THE REALITY OF SCALING</h2>
+            <p class="text-brandSlate text-base md:text-lg max-w-2xl mb-16 leading-relaxed text-left">
                 As your agency starts to grow, the old ways of working begin to crack. If any of these friction points sound familiar, your systems are quietly bleeding your profits.
             </p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 text-left">
                 <!-- 01 -->
                 <div class="border-t border-brandCream/15 pt-6">
                     <span class="font-montserrat text-xs text-brandSlate font-bold block mb-4">01 / THE FOUNDER TRAP</span>
@@ -280,7 +314,7 @@
     </section>
 
     <!-- SECTION 4: THE METHOD / CORE ALIGNMENT FLOW -->
-    <section id="alignment" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+    <section id="alignment" class="py-24 px-6 md:px-12 max-w-7xl mx-auto text-left">
         <div class="max-w-2xl mb-20">
             <p class="text-brandBlue font-montserrat font-bold tracking-widest text-xs uppercase mb-3">THE METHOD</p>
             <h2 class="font-tenor text-3xl md:text-5xl font-light text-brandCharcoal">CORE ALIGNMENT FLOW</h2>
@@ -336,7 +370,7 @@
     </section>
 
     <!-- SECTION 5: SERVICES & OPERATIONAL PARTNERSHIP (Perfect Symmetrical Height Grid) -->
-    <section id="services" class="bg-brandCream border-t border-brandCharcoal/5 py-24 px-6 md:px-12">
+    <section id="services" class="bg-brandCream border-t border-brandCharcoal/5 py-24 px-6 md:px-12 text-left">
         <div class="max-w-7xl mx-auto">
             <div class="max-w-2xl mb-16">
                 <p class="text-brandBlue font-montserrat font-bold tracking-widest text-xs uppercase mb-3">How we work together</p>
@@ -379,8 +413,12 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Services CTA triggers the 30-min Cal.com namespace -->
-                    <button data-cal-link="thea-theer/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg mt-auto">
+                    <!-- Bound to 30-Min Cal.com Overlay -->
+                    <button 
+                      data-cal-link="thea-theer/30min" 
+                      data-cal-namespace="30min" 
+                      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' 
+                      class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg mt-auto">
                         Book for Diagnostic
                     </button>
                 </div>
@@ -417,8 +455,12 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Services CTA triggers the 30-min Cal.com namespace -->
-                    <button data-cal-link="thea-theer/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider bg-brandBlue text-white hover:bg-brandBlue/90 transition-all py-4 rounded-lg mt-auto">
+                    <!-- Bound to 30-Min Cal.com Overlay -->
+                    <button 
+                      data-cal-link="thea-theer/30min" 
+                      data-cal-namespace="30min" 
+                      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' 
+                      class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider bg-brandBlue text-white hover:bg-brandBlue/90 transition-all py-4 rounded-lg mt-auto">
                         Book for Sprint
                     </button>
                 </div>
@@ -454,8 +496,12 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Services CTA triggers the 30-min Cal.com namespace -->
-                    <button data-cal-link="thea-theer/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg mt-auto">
+                    <!-- Bound to 30-Min Cal.com Overlay -->
+                    <button 
+                      data-cal-link="thea-theer/30min" 
+                      data-cal-namespace="30min" 
+                      data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}' 
+                      class="block w-full text-center font-montserrat text-sm font-semibold tracking-wider border border-brandCharcoal hover:bg-brandCharcoal hover:text-brandCream transition-all py-4 rounded-lg mt-auto">
                         Inquire for Bespoke
                     </button>
                 </div>
@@ -464,7 +510,7 @@
     </section>
 
     <!-- SECTION 5: PROOF OF CONCEPT / CASE STUDIES PREVIEW -->
-    <section id="case-studies" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-brandCharcoal/5">
+    <section id="case-studies" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-brandCharcoal/5 text-left">
         <div class="max-w-2xl mb-16 flex flex-col items-start">
             <p class="text-brandBlue font-montserrat font-bold tracking-widest text-xs uppercase mb-3">PROOF OF CONCEPT</p>
             <h2 class="font-tenor text-3xl md:text-5xl font-light text-brandCharcoal">CASE STUDIES</h2>
@@ -484,7 +530,7 @@
                     </p>
                 </div>
                 <div class="border-t border-brandCharcoal/10 pt-4 flex justify-between items-center">
-                    <span class="text-base font-bold font-montserrat text-brandOrange tracking-wide">+36% Revenue Lift</span>
+                    <span class="text-lg font-bold font-montserrat text-brandOrange tracking-wide">+36% Revenue Lift</span>
                     <button onclick="openSpecificCase(0)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1" aria-label="View Details for Creative Agency Ops Model">
                         Details &rarr;
                     </button>
@@ -501,7 +547,7 @@
                     </p>
                 </div>
                 <div class="border-t border-brandCharcoal/10 pt-4 flex justify-between items-center">
-                    <span class="text-base font-bold font-montserrat text-brandOrange tracking-wide">120% KPI Increase</span>
+                    <span class="text-lg font-bold font-montserrat text-brandOrange tracking-wide">120% KPI Increase</span>
                     <button onclick="openSpecificCase(1)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1" aria-label="View Details for Automotive Experience Flagship">
                         Details &rarr;
                     </button>
@@ -518,7 +564,7 @@
                     </p>
                 </div>
                 <div class="border-t border-brandCharcoal/10 pt-4 flex justify-between items-center">
-                    <span class="text-base font-bold font-montserrat text-brandOrange tracking-wide">5-Tier Pricing</span>
+                    <span class="text-lg font-bold font-montserrat text-brandOrange tracking-wide">5-Tier Pricing</span>
                     <button onclick="openSpecificCase(2)" class="text-[10px] font-bold uppercase tracking-widest font-montserrat text-brandCharcoal hover:text-brandBlue flex items-center gap-1" aria-label="View Details for Skincare Commerce Strategy">
                         Details &rarr;
                     </button>
@@ -535,23 +581,23 @@
     </section>
 
     <!-- SECTION 7: THE FOUNDER’S VOICE (OPERATOR PERSPECTIVE) -->
-    <section id="about" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-brandCharcoal/5">
+    <section id="about" class="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-brandCharcoal/5 text-left">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
             <!-- Left Profile Panel (Empty frame for portrait photo) -->
-<div class="lg:col-span-4 space-y-6 text-center">
-    <!-- Frame holds portrait dimensions cleanly -->
-    <div class="border border-brandCharcoal/5 rounded-lg aspect-[4/5] flex items-center justify-center relative overflow-hidden shadow-inner bg-brandSlate/5">
-        <img src="assets/thea-photo.webp" alt="Thea Theer - Strategic Operations Consultant & Fractional COO" class="w-full h-full object-cover">
-    </div>
+            <div class="lg:col-span-4 space-y-6 text-center">
+                <!-- Frame holds portrait dimensions cleanly -->
+                <div class="border border-brandCharcoal/5 rounded-lg aspect-[4/5] flex items-center justify-center relative overflow-hidden shadow-inner bg-brandSlate/5">
+                    <img src="assets/thea-photo.webp" alt="Thea Theer - Strategic Operations Consultant & Fractional COO" class="w-full h-full object-cover">
+                </div>
 
-    <!-- Strategic name & title block moved directly under image frame -->
-    <div class="space-y-3">
-        <p class="font-tenor text-2xl font-bold tracking-wider uppercase text-brandCharcoal m-2">Thea Theer</p>
-        <p class="text-[10px] font-bold text-brandOrange tracking-widest uppercase font-montserrat m-0">Strategic Operations Consultant & Fractional COO</p>
-    </div>
+                <!-- Strategic name & title block moved directly under image frame -->
+                <div class="space-y-3">
+                    <p class="font-tenor text-2xl font-bold tracking-wider uppercase text-brandCharcoal m-2">Thea Theer</p>
+                    <p class="text-[10px] font-bold text-brandOrange tracking-widest uppercase font-montserrat m-0">Strategic Operations Consultant & Fractional COO</p>
+                </div>
 
-    <!-- Premium SVG Icons for Social Platforms -->
+                <!-- Premium SVG Icons for Social Platforms -->
                 <div class="pt-2 flex justify-center space-x-6">
                     <a href="https://linkedin.com/in/chaninthon" target="_blank" class="text-brandCharcoal hover:text-brandBlue transition-colors" aria-label="LinkedIn">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -577,7 +623,7 @@
                     "Exceptional creative vision shouldn't be capped by a fragile operational ceiling."
                 </div>
                 
-                <div class="space-y-6 text-brandCharcoal/85 leading-relaxed text-sm md:text-base">
+                <div class="space-y-6 text-brandCharcoal/85 leading-relaxed text-sm md:text-base font-normal">
                     <p>
                         In my decade of managing operations for fast-growing agencies, remote-first consulting environments, and international accounts, I’ve seen one recurring pattern: creative geniuses often build exceptional agencies, but chaotic businesses. 
                     </p>
@@ -597,14 +643,13 @@
     </section>
 
     <!-- SECTION 8: CALL TO ACTION -->
-    <section class="bg-brandCream border-t border-brandCharcoal/10 py-24 px-6 md:px-12">
+    <section class="bg-brandCream border-t border-brandCharcoal/10 py-24 px-6 md:px-12 text-center">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="font-tenor text-3xl md:text-5xl font-light mb-4">READY TO STABILIZE YOUR AGENCY FOR GROWTH?</h2>
             <p class="text-brandCharcoal/70 mt-4 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-10">
                 Tell us about your operational challenges, and we will help identify your operational leaks and see the next steps to fix them.
             </p>
-            <!-- Generic CTA triggers the 15-min Cal.com namespace -->
-            <button data-cal-link="thea-theer/15min" data-cal-namespace="15min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"auto"}' class="bg-brandBlue text-white font-montserrat uppercase font-bold tracking-widest text-xs px-12 py-5 rounded-lg shadow-md hover:bg-brandBlue/90 transition-all">
+            <button onclick="openBookingModal('General Call')" class="bg-brandBlue text-white font-montserrat uppercase font-bold tracking-widest text-xs px-12 py-5 rounded-lg shadow-md hover:bg-brandBlue/90 transition-all">
                 Let's Talk
             </button>
         </div>
@@ -630,7 +675,7 @@
     <!-- INTERACTIVE SLIDE-OVER DRAWER: CASE STUDIES -->
     <!-- ============================================ -->
     <div id="drawerOverlay" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm hidden transition-all duration-300" onclick="closeDrawer()"></div>
-    <div id="caseStudiesDrawer" class="fixed right-0 top-0 bottom-0 z-50 w-full max-w-2xl bg-brandCream shadow-2xl translate-x-full transition-transform duration-300 ease-in-out p-6 md:p-10 overflow-y-auto">
+    <div id="caseStudiesDrawer" class="fixed right-0 top-0 bottom-0 z-50 w-full max-w-2xl bg-brandCream shadow-2xl translate-x-full transition-transform duration-300 ease-in-out p-6 md:p-10 overflow-y-auto text-left">
         <div class="flex justify-between items-center mb-8 pb-4 border-b border-brandCharcoal/10">
             <span class="font-tenor tracking-widest text-brandCharcoal text-lg font-bold">FULL CASE STUDIES</span>
             <button onclick="closeDrawer()" class="text-brandCharcoal font-montserrat uppercase tracking-wider text-xs font-semibold hover:text-brandOrange">
@@ -694,7 +739,7 @@
                         </div>
                     </div>
 
-                    <button type="button" onclick="goToStep2()" class="w-full bg-brandBlue text-white font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg shadow-md hover:bg-brandBlue/90 transition-all">
+                    <button type="button" onclick="goToStep2()" class="w-full bg-brandBlue text-white font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg shadow-md hover:bg-brandBlue/90 transition-all font-semibold">
                         Continue &rarr;
                     </button>
                 </div>
@@ -735,10 +780,10 @@
                     </div>
 
                     <div class="flex gap-4">
-                        <button type="button" onclick="goToStep1()" class="w-1/3 border border-brandCharcoal/20 text-brandCharcoal font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg hover:border-brandCharcoal transition-all">
+                        <button type="button" onclick="goToStep1()" class="w-1/3 border border-brandCharcoal/20 text-brandCharcoal font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg hover:border-brandCharcoal transition-all font-semibold">
                             Back
                         </button>
-                        <button type="submit" class="w-2/3 bg-brandBlue text-white font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg shadow-md hover:bg-brandBlue/90 transition-all">
+                        <button type="submit" class="w-2/3 bg-brandBlue text-white font-montserrat uppercase font-bold tracking-widest text-xs py-4 rounded-lg shadow-md hover:bg-brandBlue/90 transition-all font-semibold">
                             Let's Talk
                         </button>
                     </div>
@@ -947,7 +992,87 @@
             document.body.classList.remove('overflow-y-hidden');
         }
 
-        // Removed old form validation and submission methods as cal.com is used directly
+        function handleBackdropClick(event) {
+            if (event.target === bookingModal) {
+                closeBookingModal();
+            }
+        }
+
+        function goToStep1() {
+            stepContainer1.classList.remove('hidden');
+            stepContainer2.classList.add('hidden');
+            stepContainer3.classList.add('hidden');
+            modalHeaderArea.classList.remove('hidden');
+        }
+
+        function goToStep2() {
+            // Validate Step 1 Inputs prior to page transition
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const email = document.getElementById('workEmail');
+            const company = document.getElementById('company');
+            const website = document.getElementById('website');
+
+            if (!firstName.checkValidity() || !lastName.checkValidity() || !email.checkValidity() || !company.checkValidity() || !website.checkValidity()) {
+                firstName.reportValidity() || lastName.reportValidity() || email.reportValidity() || company.reportValidity() || website.reportValidity();
+                return;
+            }
+
+            stepContainer1.classList.add('hidden');
+            stepContainer2.classList.remove('hidden');
+            stepContainer3.classList.add('hidden');
+            modalHeaderArea.classList.remove('hidden');
+        }
+
+        function handleFormSubmission(event) {
+            event.preventDefault();
+
+            // Validate Step 2 Inputs prior to submit (Now aligns with Step 2 variables)
+            const teamSize = document.getElementById('teamSize');
+            const budget = document.getElementById('budget');
+            const frictionReason = document.getElementById('frictionReason');
+
+            if (!teamSize.checkValidity() || !budget.checkValidity() || !frictionReason.checkValidity()) {
+                teamSize.reportValidity() || budget.reportValidity() || frictionReason.reportValidity();
+                return;
+            }
+
+            // Hide form and display clean redirect spinner
+            stepContainer2.classList.add('hidden');
+            modalHeaderArea.classList.add('hidden');
+            stepContainer3.classList.remove('hidden');
+
+            // Gather inputs
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('workEmail').value;
+            const company = document.getElementById('company').value;
+            const websiteVal = document.getElementById('website').value;
+            const teamSizeVal = teamSize.value;
+            const budgetVal = budget.value;
+            const reason = frictionReason.value;
+            const source = bookingSourceInput ? bookingSourceInput.value : '';
+
+            // Generate booking link parameterized queries to pre-fill Notion Calendar/Calendly
+            const baseUrl = "https://calendar.notion.so/meet/chaninthon/theatheer1";
+            const params = new URLSearchParams({
+                name: `${firstName} ${lastName}`,
+                email: email,
+                website: websiteVal,
+                company: company,
+                "team_size": teamSizeVal,
+                "budget_range": budgetVal,
+                "details": reason,
+                "utm_source": source
+            });
+
+            const finalRedirectUrl = `${baseUrl}?${params.toString()}`;
+
+            // Delay redirect slightly for premium feel
+            setTimeout(() => {
+                window.location.href = finalRedirectUrl;
+            }, 1500);
+        }
     </script>
 </body>
 </html>
