@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | THEA THEER</title>
+    
+    <!-- Google Fonts: Tenor Sans, Montserrat, & DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Brand Theme Config -->
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                brandCream: '#F8F4E5',
+                brandCharcoal: '#131407',
+                brandBlue: '#3E54FF',
+                brandSlate: '#A5ADBB',
+                brandOrange: '#F07D35',
+              },
+              fontFamily: {
+                tenor: ['"Tenor Sans"', 'sans-serif'],
+                montserrat: ['"Montserrat"', 'sans-serif'],
+                dm: ['"DM Sans"', 'sans-serif'],
+              }
+            }
+          }
+        }
+    </script>
+</head>
+<body class="bg-brandCream text-brandCharcoal font-dm leading-relaxed antialiased px-6 py-12 md:py-24">
+
+    <div class="max-w-3xl mx-auto">
+        <!-- Back to Home Action Header -->
+        <div class="flex justify-between items-center mb-16 pb-6 border-b border-brandCharcoal/10">
+            <a href="index.html" class="font-montserrat text-xs uppercase tracking-widest font-bold text-brandCharcoal hover:text-brandBlue transition-colors flex items-center gap-2">
+                &larr; Back to Home
+            </a>
+            <span class="font-tenor text-sm font-bold tracking-widest">THEA·THEER</span>
+        </div>
+
+        <!-- Privacy Content Styled Under Brand Standards -->
+        <article class="space-y-8 text-sm md:text-base text-brandCharcoal/80">
+            <div>
+                <h1 class="font-tenor text-3xl md:text-5xl font-bold tracking-normal text-brandCharcoal mb-2">PRIVACY POLICY</h1>
+                <p class="font-montserrat text-xs uppercase font-bold text-brandOrange tracking-widest">Last updated: June 01, 2026</p>
+            </div>
+
+            <p class="leading-relaxed">
+                This Privacy Notice for <strong>C Digi Vibe Co.,Ltd.</strong> (doing business as <strong>Thea Theer</strong>) (<strong>"we," "us," or "our"</strong>), describes how and why we might access, collect, store, use, and/or share (<strong>"process"</strong>) your personal information when you use our services (<strong>"Services"</strong>), including when you:
+            </p>
+
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Visit our website at <a target="_blank" class="text-brandBlue hover:text-brandOrange underline font-semibold transition-colors" href="https://www.thea-theer.com">https://www.thea-theer.com</a> or any website of ours that links to this Privacy Notice.</li>
+                <li>Engage with us in other related ways, including any marketing, sales, consultations, or events.</li>
+            </ul>
+
+            <p class="leading-relaxed">
+                <strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a target="_blank" class="text-brandBlue hover:text-brandOrange underline font-semibold transition-colors" href="mailto:office@cdigivibe.com">office@cdigivibe.com</a>.
+            </p>
+
+            <div class="border-t border-brandCharcoal/10 pt-8 mt-12">
+                <h2 class="font-tenor text-xl md:text-2xl font-bold text-brandCharcoal mb-4 uppercase">1. WHAT INFORMATION DO WE COLLECT?</h2>
+                <h3 class="font-montserrat font-bold text-sm text-brandCharcoal uppercase mb-3">Personal information you disclose to us</h3>
+                <p class="leading-relaxed mb-4">
+                    <em><strong>In Short:</strong> We collect personal information that you voluntarily provide to us.</em>
+                </p>
+                <p class="leading-relaxed mb-4">
+                    We collect personal information that you voluntarily provide to us when you express an interest in obtaining information about us or our products and Services, when you participate in activities on the Services, or otherwise when you contact us.
+                </p>
+                <p class="leading-relaxed mb-4 font-semibold">
+                    The personal information we collect may include the following:
+                </p>
+                <ul class="list-disc pl-6 space-y-2 mb-6">
+                    <li>Names, phone numbers, and email addresses.</li>
+                    <li>Mailing addresses, billing addresses, and job titles.</li>
+                    <li>Contact preferences, website URLs, and social media profiles.</li>
+                    <li>Business coordinates and target financial goals.</li>
+                </ul>
+
+                <p class="leading-relaxed mb-4">
+                    <strong>Payment Data.</strong> We may collect data necessary to process your payment if you choose to make purchases, such as your payment instrument number, and the security code associated with your payment instrument. All payment data is handled and stored securely by <strong>Stripe</strong>. You may find their privacy notice link here: <a target="_blank" class="text-brandBlue hover:text-brandOrange underline transition-colors" href="https://stripe.com/privacy">https://stripe.com/privacy</a>.
+                </p>
+            </div>
+
+            <div class="border-t border-brandCharcoal/10 pt-8">
+                <h2 class="font-tenor text-xl md:text-2xl font-bold text-brandCharcoal mb-4 uppercase">2. HOW DO WE PROCESS YOUR INFORMATION?</h2>
+                <p class="leading-relaxed mb-4">
+                    <em><strong>In Short:</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law.</em>
+                </p>
+                <p class="leading-relaxed mb-4 font-semibold">
+                    We process your personal information for a variety of reasons, depending on how you interact with our Services, including:
+                </p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>To deliver and facilitate delivery of services to the user:</strong> We process your information to provide you with the requested consulting service.</li>
+                    <li><strong>To respond to user inquiries and offer support:</strong> We process your information to solve any potential issues you might have with the requested services.</li>
+                    <li><strong>To send administrative information:</strong> We process your information to send you details about our services, terms, and policy changes.</li>
+                    <li><strong>To protect our Services:</strong> We process information as part of our efforts to keep our Services safe and secure.</li>
+                </ul>
+            </div>
+
+            <div class="border-t border-brandCharcoal/10 pt-8">
+                <h2 class="font-tenor text-xl md:text-2xl font-bold text-brandCharcoal mb-4 uppercase">3. WHAT LEGAL BASES DO WE RELY ON TO PROCESS YOUR INFORMATION?</h2>
+                <p class="leading-relaxed mb-4">
+                    <em><strong>In Short:</strong> We only process your personal information when we have a valid legal basis to do so under applicable law.</em>
+                </p>
+                <p class="leading-relaxed">
+                    We rely on valid legal bases like your explicit consent, contractual performance, legal obligations, and our legitimate business interests to analyze how our Services are used, support our marketing, and diagnose delivery problems.
+                </p>
+            </div>
+
+            <div class="border-t border-brandCharcoal/10 pt-8">
+                <h2 class="font-tenor text-xl md:text-2xl font-bold text-brandCharcoal mb-4 uppercase">4. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?</h2>
+                <p class="leading-relaxed mb-4">
+                    We may share your personal information in connection with business transfers, mergers, asset sales, or negotiations. We do not sell or share personal information belonging to website visitors or users to any third parties [1].
+                </p>
+            </div>
+
+            <div class="border-t border-brandCharcoal/10 pt-8">
+                <h2 class="font-tenor text-xl md:text-2xl font-bold text-brandCharcoal mb-4 uppercase">5. DO WE OFFER ARTIFICIAL INTELLIGENCE-BASED PRODUCTS?</h2>
+                <p class="leading-relaxed mb-4">
+                    As part of our Services, we may use tools powered by artificial intelligence or machine learning provided by providers such as <strong>OpenAI, Anthropic, Midjourney, and Google Cloud AI</strong> to assist with operational translation, document layouts, and predictive analytics. All data is processed securely in compliance with strict privacy safeguards.
+                </p>
+            </div>
+
+            <div class="border-t border-brandCharcoal/10 pt-8">
+                <h2 class="font-tenor text-xl md:text-2xl font-bold text-brandCharcoal mb-4 uppercase">6. HOW LONG DO WE KEEP YOUR INFORMATION?</h2>
+                <p class="leading-relaxed mb-4">
+                    We keep your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Notice unless a longer retention period is required or permitted by law. In no case will we retain your contact coordinates for longer than <strong>1 year</strong> after the termination of our operational engagement.
+                </p>
+            </div>
+
+            <div class="border-t border-brandCharcoal/10 pt-8">
+                <h2 class="font-tenor text-xl md:text-2xl font-bold text-brandCharcoal mb-4 uppercase">7. HOW DO WE KEEP YOUR INFORMATION SAFE?</h2>
+                <p class="leading-relaxed mb-4">
+                    We have implemented appropriate organizational and technical security measures designed to protect the security of any personal information we process. However, please remember that no electronic transmission over the internet can be guaranteed 100% secure, so transmission is at your own risk.
+                </p>
+            </div>
+
+            <div class="border-t border-brandCharcoal/10 pt-8">
+                <h2 class="font-tenor text-xl md:text-2xl font-bold text-brandCharcoal mb-4 uppercase">8. WHAT ARE YOUR PRIVACY RIGHTS?</h2>
+                <p class="leading-relaxed mb-4">
+                    Depending on your geographic location, you have rights that allow you greater access to and control over your personal information. This includes the right to request access, correction, deletion, or data portability. You can exercise these rights by submitting a formal request to us at <a class="text-brandBlue hover:text-brandOrange underline transition-colors" href="mailto:office@cdigivibe.com">office@cdigivibe.com</a>.
+                </p>
+            </div>
+
+            <!-- CTA/Contact Footer inside the Policy Page -->
+            <div class="border-t border-brandCharcoal/10 pt-16 text-center space-y-4">
+                <h4 class="font-tenor text-2xl font-bold text-brandCharcoal">C Digi Vibe Co.,Ltd.</h4>
+                <p class="text-xs font-montserrat uppercase font-bold tracking-widest text-brandCharcoal/60">
+                    118 Soi Chulalongkorn 5, Block 28X Building,<br>
+                    4th Floor, Unit X408, Wang Mai, Pathumwan,<br>
+                    Bangkok 10330, Thailand
+                </p>
+                <p class="text-xs text-brandSlate">
+                    Data Protection Officer: <a class="text-brandBlue hover:text-brandOrange underline transition-colors" href="mailto:connect@cdigivibe.com">connect@cdigivibe.com</a>
+                </p>
+            </div>
+        </article>
+
+        <!-- Footer -->
+        <footer class="mt-20 pt-8 border-t border-brandCharcoal/10 text-center text-xs text-brandSlate">
+            <p>&copy; 2026 C Digi Vibe Co.,Ltd. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
