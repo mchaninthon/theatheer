@@ -9,6 +9,23 @@
     <meta name="description" content="Strategic operations consultant & Fractional COO for advertising, digital, creative, and design agencies. Step out of the daily delivery loops, protect your profit margins, and build scalable SOP structures.">
     <meta name="keywords" content="Agency operations consultant, Fractional COO for agencies, creative studio workflows, SOP alignment, strategic operations for small business">
 
+    <!-- Canonical Link (Saves Google Indexing authority) -->
+    <link rel="canonical" href="https://www.thea-theer.com/">
+
+    <!-- Open Graph / Facebook / LinkedIn (Absolute URLs required) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thea-theer.com/">
+    <meta property="og:title" content="THEA THEER | Strategic Operations Advisory for Agencies">
+    <meta property="og:description" content="Strategic operations consultant & Fractional COO for advertising, digital, creative, and design agencies.">
+    <meta property="og:image" content="https://www.thea-theer.com/assets/thea-photo.webp">
+
+    <!-- Twitter / X Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.thea-theer.com/">
+    <meta name="twitter:title" content="THEA THEER | Strategic Operations Advisory for Agencies">
+    <meta name="twitter:description" content="Strategic operations consultant & Fractional COO for advertising, digital, creative, and design agencies.">
+    <meta name="twitter:image" content="https://www.thea-theer.com/assets/thea-photo.webp">
+    
     <!-- Standard & Mobile Favicon Package Linkage -->
     <link rel="shortcut icon" href="assets/Thea-Favicon.ico/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/Thea-Favicon.ico/favicon.ico" type="image/x-icon">
@@ -588,7 +605,7 @@
             <div class="lg:col-span-4 space-y-6 text-center">
                 <!-- Frame holds portrait dimensions cleanly -->
                 <div class="border border-brandCharcoal/5 rounded-lg aspect-[4/5] flex items-center justify-center relative overflow-hidden shadow-inner bg-brandSlate/5">
-                    <img src="assets/thea-photo.webp" alt="Thea Theer - Strategic Operations Consultant & Fractional COO" class="w-full h-full object-cover">
+                    <img src="assets/thea-photo.webp" alt="Thea Theer - Strategic Operations Consultant & Fractional COO" class="w-full h-full object-cover" loading="lazy" width="800" height="1000">
                 </div>
 
                 <!-- Strategic name & title block moved directly under image frame -->
@@ -599,7 +616,7 @@
 
                 <!-- Premium SVG Icons for Social Platforms -->
                 <div class="pt-2 flex justify-center space-x-6">
-                    <a href="https://linkedin.com/in/chaninthon" target="_blank" class="text-brandCharcoal hover:text-brandBlue transition-colors" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/in/chaninthon" target="_blank" rel="noopener noreferrer" class="text-brandCharcoal hover:text-brandBlue transition-colors" aria-label="LinkedIn">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     </a>
                     <a href="https://instagram.com/theatheer" target="_blank" class="text-brandCharcoal hover:text-brandBlue transition-colors" aria-label="Instagram">
@@ -849,106 +866,46 @@
             currentMethodIndex = (currentMethodIndex + 1) % methodSteps.length;
             setTimeout(animateMethodPipeline, 3000);
         }
-        animateMethodPipeline();
-
-        // 2-Step Modal Control Elements
-        const bookingModal = document.getElementById('bookingModal');
-        const stepContainer1 = document.getElementById('stepContainer1');
-        const stepContainer2 = document.getElementById('stepContainer2');
-        const stepContainer3 = document.getElementById('stepContainer3');
-        const modalHeaderArea = document.getElementById('modalHeaderArea');
-        const bookingSourceInput = document.getElementById('bookingSource');
-
-        function openBookingModal(sourceName) {
-            bookingModal.classList.remove('hidden');
-            document.body.classList.add('overflow-y-hidden');
-            if (bookingSourceInput && sourceName) {
-                bookingSourceInput.value = sourceName;
-            }
-            goToStep1(); // Initialize modal back to Step 1 cleanly
+        animateMethodPipeline();       
         }
-
-        function closeBookingModal() {
-            bookingModal.classList.add('hidden');
-            document.body.classList.remove('overflow-y-hidden');
-        }
-
-        function handleBackdropClick(event) {
-            if (event.target === bookingModal) {
-                closeBookingModal();
-            }
-        }
-
-        function goToStep1() {
-            stepContainer1.classList.remove('hidden');
-            stepContainer2.classList.add('hidden');
-            stepContainer3.classList.add('hidden');
-            modalHeaderArea.classList.remove('hidden');
-        }
-
-        function goToStep2() {
-            // Validate Step 1 Inputs prior to page transition
-            const firstName = document.getElementById('firstName');
-            const lastName = document.getElementById('lastName');
-            const email = document.getElementById('workEmail');
-            const company = document.getElementById('company');
-            const website = document.getElementById('website');
-
-            if (!firstName.checkValidity() || !lastName.checkValidity() || !email.checkValidity() || !company.checkValidity() || !website.checkValidity()) {
-                firstName.reportValidity() || lastName.reportValidity() || email.reportValidity() || company.reportValidity() || website.reportValidity();
-                return;
-            }
-
-            stepContainer1.classList.add('hidden');
-            stepContainer2.classList.remove('hidden');
-            stepContainer3.classList.add('hidden');
-            modalHeaderArea.classList.remove('hidden');
-        }
-
-        function handleFormSubmission(event) {
-            event.preventDefault();
-
-            // Validate Step 2 Inputs prior to submit (Now aligns with Step 2 variables)
-            const teamSize = document.getElementById('teamSize');
-            const budget = document.getElementById('budget');
-            const frictionReason = document.getElementById('frictionReason');
-
-            if (!teamSize.checkValidity() || !budget.checkValidity() || !frictionReason.checkValidity()) {
-                teamSize.reportValidity() || budget.reportValidity() || frictionReason.reportValidity();
-                return;
-            }
-
-            // Hide form and display clean redirect spinner
-            stepContainer2.classList.add('hidden');
-            modalHeaderArea.classList.add('hidden');
-            stepContainer3.classList.remove('hidden');
-
-            // Gather inputs
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const email = document.getElementById('workEmail').value;
-            const company = document.getElementById('company').value;
-            const websiteVal = document.getElementById('website').value;
-            const teamSizeVal = teamSize.value;
-            const budgetVal = budget.value;
-            const reason = frictionReason.value;
-            const source = bookingSourceInput ? bookingSourceInput.value : '';
-
-            // Generate booking link parameterized queries to pre-fill Notion Calendar/Calendly
-            const baseUrl = "https://calendar.notion.so/meet/chaninthon/theatheer1";
-            const params = new URLSearchParams({
-                name: `${firstName} ${lastName}`,
-                email: email,
-                website: websiteVal,
-                company: company,
-                "team_size": teamSizeVal,
-                "budget_range": budgetVal,
-                "details": reason,
-                "utm_source": source
-            });
-
-            const finalRedirectUrl = `${baseUrl}?${params.toString()}`;          
-        }
+    </script>
+    <!-- ============================================ -->
+    <!-- ASYNCHRONOUS NON-RENDER-BLOCKING CAL.COM INITIALIZATION -->
+    <!-- ============================================ -->
+    <script type="text/javascript">
+      (function (C, A, L) { 
+        let p = function (a, ar) { a.q.push(ar); }; 
+        let d = C.document; 
+        C.Cal = C.Cal || function () { 
+          let cal = C.Cal; 
+          let ar = arguments; 
+          if (!cal.loaded) { 
+            cal.ns = {}; 
+            cal.q = cal.q || []; 
+            let s = d.createElement("script");
+            s.src = A;
+            s.async = true; // <-- Force async load to pass speed tests [2]
+            d.head.appendChild(s); 
+            cal.loaded = true; 
+          } 
+          if (ar[0] === L) { 
+            const api = function () { p(api, arguments); }; 
+            const namespace = ar[1]; 
+            api.q = api.q || []; 
+            if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;
+          } 
+          p(cal, ar); 
+        }; 
+      })(window, "https://app.cal.com/embed/embed.js", "init");
+      
+      Cal("init", "15min", {origin:"https://app.cal.com"});
+      Cal.ns["15min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#131407"},"dark":{"cal-brand":"#F8F4E5"}},"hideEventTypeDetails":false,"layout":"month_view"});
+      
+      Cal("init", "30min", {origin:"https://app.cal.com"});
+      Cal.ns["30min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#131407"},"dark":{"cal-brand":"#F8F4E5"}},"hideEventTypeDetails":false,"layout":"month_view"});
+      
+      Cal.config = Cal.config || {};
+      Cal.config.forwardQueryParams = true;
     </script>
 </body>
 </html>
