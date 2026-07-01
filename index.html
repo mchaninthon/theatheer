@@ -49,14 +49,16 @@
     <meta name="msapplication-TileColor" content="#F8F4E5">
     <meta name="msapplication-TileImage" content="assets/Thea-Favicon.ico/ms-icon-144x144.png">
     <meta name="theme-color" content="#F8F4E5">
+
     
-    <!-- Google Fonts: Tenor Sans, Montserrat, & DM Sans -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Asynchronous Non-Blocking Google Fonts Loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:wght@400;500;600;700&family=Tenor+Sans&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:wght@400;500;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+    </noscript>
     
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
     
     <!-- Custom Brand Theme Config & Symmetrical Rounding Constraints -->
     <script>
