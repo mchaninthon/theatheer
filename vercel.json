@@ -23,6 +23,10 @@
         {
           "key": "Cross-Origin-Opener-Policy",
           "value": "same-origin"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' data: https:; child-src https://app.cal.com; frame-src https://app.cal.com;"
         }
       ]
     }
