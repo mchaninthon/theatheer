@@ -236,7 +236,7 @@
             </button>
         </div>
     </nav>
-
+<main>
     <!-- SECTION 1: HERO (With Frameless Kinetic Floating Artwork) -->
     <section class="min-h-[85vh] flex items-center px-6 py-20 md:px-12 max-w-7xl mx-auto relative">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 w-full items-center">
@@ -714,7 +714,7 @@
 </button>
         </div>
     </section>
-
+</main>
     <!-- FOOTER -->
     <footer class="bg-brandCharcoal text-brandSlate text-xs py-12 text-center border-t border-brandCream/5 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -859,11 +859,31 @@
             }, 350);
         }
 
-        // Section 4: Symmetrical Pulse Loop Pipeline (Horizontal Desktop / Dynamic Vertical Mobile)
+        // Section 4: Symmetrical Pulse Loop Pipeline (Optimized to Prevent Layout Reflow) [1]
         const methodPulse = document.getElementById('methodPulse');
         const methodPulseMobile = document.getElementById('methodPulseMobile');
         const methodSteps = document.querySelectorAll('.method-step');
         let currentMethodIndex = 0;
+        let mobilePulseOffsets = []; // Cached positions to prevent layout thrashing [1]
+
+        function calculateMobileOffsets() {
+            mobilePulseOffsets = [];
+            const activeStep = methodSteps[0];
+            if (!activeStep) return;
+            const container = activeStep.parentElement;
+            if (!container) return;
+
+            const containerRect = container.getBoundingClientRect();
+            methodSteps.forEach((step) => {
+                const circle = step.querySelector('.w-14');
+                if (circle) {
+                    const circleRect = circle.getBoundingClientRect();
+                    // Calculate and cache the offset center once [1]
+                    const relativeTop = circleRect.top - containerRect.top + (circleRect.height / 2) - 5;
+                    mobilePulseOffsets.push(relativeTop);
+                }
+            });
+        }
 
         function animateMethodPipeline() {
             methodSteps.forEach((step, idx) => {
@@ -883,33 +903,29 @@
                 }
             });
 
-            // Update pulse dot positions dynamically depending on viewport
+            // Update pulse dot positions using cached values
             if (window.innerWidth >= 1024) {
-                // Desktop: Symmetrical Horizontal Percentages
                 const leftPositions = ['10%', '30%', '50%', '70%', '90%'];
                 if (methodPulse) {
                     methodPulse.style.left = leftPositions[currentMethodIndex];
                 }
             } else {
-                // Mobile/Tablet: Perfect Dynamic Vertical Center Alignment via getBoundingClientRect
-                const activeStep = methodSteps[currentMethodIndex];
-                const activeCircle = activeStep.querySelector('.w-14');
-                const container = activeStep.parentElement;
-                
-                if (activeCircle && container && methodPulseMobile) {
-                    const containerRect = container.getBoundingClientRect();
-                    const circleRect = activeCircle.getBoundingClientRect();
-                    // Centers the 10px dot inside the 56px circle dynamically [1]
-                    const relativeTop = circleRect.top - containerRect.top + (circleRect.height / 2) - 5;
-                    methodPulseMobile.style.top = `${relativeTop}px`;
+                if (methodPulseMobile && mobilePulseOffsets[currentMethodIndex] !== undefined) {
+                    // Instantly apply cached position (0ms forced reflow) [1]
+                    methodPulseMobile.style.top = `${mobilePulseOffsets[currentMethodIndex]}px`;
                 }
             }
 
             currentMethodIndex = (currentMethodIndex + 1) % methodSteps.length;
             setTimeout(animateMethodPipeline, 3000);
         }
-        animateMethodPipeline();       
-    </script>
+
+        // Initialize positions once on load and update only on window resize
+        window.addEventListener('DOMContentLoaded', () => {
+            calculateMobileOffsets();
+            animateMethodPipeline();
+        });
+        window.addEventListener('resize', calculateMobileOffsets);
     <!-- ============================================ -->
     <!-- ASYNCHRONOUS NON-RENDER-BLOCKING CAL.COM INITIALIZATION -->
     <!-- ============================================ -->
