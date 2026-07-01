@@ -859,12 +859,12 @@
             }, 350);
         }
 
-        // Section 4: Symmetrical Pulse Loop Pipeline (Optimized to Prevent Layout Reflow) [1]
+        // Section 4: Symmetrical Pulse Loop Pipeline 
         const methodPulse = document.getElementById('methodPulse');
         const methodPulseMobile = document.getElementById('methodPulseMobile');
         const methodSteps = document.querySelectorAll('.method-step');
         let currentMethodIndex = 0;
-        let mobilePulseOffsets = []; // Cached positions to prevent layout thrashing [1]
+        let mobilePulseOffsets = []; 
 
         function calculateMobileOffsets() {
             mobilePulseOffsets = [];
@@ -926,6 +926,8 @@
             animateMethodPipeline();
         });
         window.addEventListener('resize', calculateMobileOffsets);
+    </script> 
+
     <!-- ============================================ -->
     <!-- ASYNCHRONOUS NON-RENDER-BLOCKING CAL.COM INITIALIZATION -->
     <!-- ============================================ -->
@@ -954,20 +956,17 @@
           p(cal, ar); 
         }; 
       })(window, "https://app.cal.com/embed/embed.js", "init");
-      
-    </script>
-    <script>
-      // Initialize 15-Min Meeting Namespace
+
+    // Initialize 15-Min Meeting Namespace
       Cal("init", "15min", {origin:"https://app.cal.com"});
       Cal.ns["15min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#131407"},"dark":{"cal-brand":"#F8F4E5"}},"hideEventTypeDetails":false,"layout":"month_view"});
-      
-      // Initialize 30-Min Strategic Session Namespace
+    
+    // Initialize 30-Min Strategic Session Namespace
       Cal("init", "30min", {origin:"https://app.cal.com"});
       Cal.ns["30min"]("ui", {"cssVarsPerTheme":{"light":{"cal-brand":"#131407"},"dark":{"cal-brand":"#F8F4E5"}},"hideEventTypeDetails":false,"layout":"month_view"});
       
       Cal.config = Cal.config || {};
       Cal.config.forwardQueryParams = true;
     </script>
-
 </body>
 </html>
